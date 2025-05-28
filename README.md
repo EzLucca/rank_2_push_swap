@@ -13,8 +13,12 @@ sequence of instructions to sort the given integers in ascending order.
 
 ### The Rules
 
-2 stacks: `a` and `b`. The `a` stack contain a random number of unique 
-signed integers. The stack `b` is empty.
+- 2 stacks: `a` and `b`. 
+- The `a` stack contain a random number of unique signed integers. 
+- The stack `b` is empty.
+
+
+#### The movements
 
 - `sa(swap a)`: Swap the first 2 elements at the top of stack `a`.
 Do nothing if there is only one element or none.
