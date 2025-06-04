@@ -11,6 +11,9 @@
 /* ************************************************************************** */
 
 // Functions to create
+static void reverse_rotate(t_list *stack)
+{
+}
 //  - reverse_a
 //  - reverse_b
 //  - reverse_r

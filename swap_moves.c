@@ -25,15 +25,18 @@ static void swap(t_list **stack)
 void sa(t_list *a)
 {
 	swap(a);
+	ft_printf("sa\n");
 }
 //  - swap_b
 void sb(t_list *b)
 {
 	swap(b);
+	ft_printf("sb\n");
 }
 //  - swap_s
 void ss(t_list *a, t_list *b)
 {
 	swap(a);
 	swap(b);
+	ft_printf("ss\n");
 }
