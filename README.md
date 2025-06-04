@@ -40,6 +40,16 @@ The last element becomes the first one.
 The last element becomes the first one.
 - `rrr`: `rra` and `rrb` at the same time. 
 
+### The Benchmark 
+Max validation(100)
+- Sort 100 random numbers in fewer than 700 operations.
+- Sort 500 random numbers in no more than 5500 operations.
+
+Min validation (80%)
+- Sort 100 random numbers in under 1100 operations and 500 numbers in 8500 operations.
+- Sort 100 random numbers in under 700 operations and 500 numbers in 11500 operations.
+- Sort 100 random numbers in under 1300 operations and 500 numbers in 5500 operations.
+
 ### The Functions 
 ### The Logic 
 ### The Bonus
