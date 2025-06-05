@@ -6,37 +6,43 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 11:10:39 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/04 11:10:40 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/05 11:21:39 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 // Functions to create
-
-static void swap(t_list **stack)
+static void swap(t_stack *stack)
 {
-	t_list *tmp;
+	if(stack->size < 2)
+		return ;
+	t_node *first = stack->top;
+	t_node *second = first->next;
 
-	tmp = *stack;
-	*stack = (*stack)->next;
-	(*stack)->next = tmp;
+	first->next = second->next;
+	if (second->next)
+		second->next->prev = first;
+
+	second->prev = NULL;
+	second->next = first;
+	first->prev = second;
+
+	stack->top = second;
 }
-//  - swap_a
-void sa(t_list *a)
+
+void	sa(t_stack **a, bool checker)
 {
 	swap(a);
-	ft_printf("sa\n");
+
 }
-//  - swap_b
-void sb(t_list *b)
+void	sb(t_stack **a, bool checker)
 {
 	swap(b);
-	ft_printf("sb\n");
+
 }
-//  - swap_s
-void ss(t_list *a, t_list *b)
+void	ss(t_stack **a, bool checker)
 {
 	swap(a);
 	swap(b);
-	ft_printf("ss\n");
+
 }

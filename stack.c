@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/04 11:17:03 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/04 11:25:28 by edlucca          ###   ########.fr       */
+/*   Created: 2025/06/05 10:59:16 by edlucca           #+#    #+#             */
+/*   Updated: 2025/06/05 11:11:33 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-// Libraries
-# include <unistd.h>
-# include <stdlib.h>
-
-// struct
-typedef struct s_node
+t_stack	*init_stack(void)
 {
-	int				value;
-	int				index;
-	struct s_node *next;
-	struct s_node *prev;
-} t_node;
+	t_stack *stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
+	stack->top = NULL;
+	stack->size = 0;
+	return(stack);
+}
 
-typedef struct s_stack
+void pop_stack(t_stack *stack, int value)
 {
-	t_node *top;
-	int		size;
-} t_stack;
-
-typedef struct s_ps
-{
-	t_stack *a;
-	t_stack *b;
-} t_ps;
-
-#endif // !PUSH_SWAP_H
+	t_node *new = malloc(sizeof(t_node));
+	new->value = value;
+	new->next = stack->top;
+	new->prev = NULL;
+	if(stack->top)
+		stack->top->prev = new;
+	stack->top = new;
+	stack->size++;
+}

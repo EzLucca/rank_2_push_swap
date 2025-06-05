@@ -14,8 +14,8 @@
 
 int	main(int ac, char **av)
 {
-	t_list *stack_a;
-	t_list *stack_b;
+	t_stack *stack_a;
+	t_stack *stack_b;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -35,7 +35,8 @@ int	main(int ac, char **av)
 	// initialize b
 	initialize_stack();
 	// algorithm sort call
-	//
+	stack_sorting();
 	// free stack_a and stack_b
+	free_stack();
 	return (0);
 }
