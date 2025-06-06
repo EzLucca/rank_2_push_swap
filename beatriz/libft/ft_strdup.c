@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: bedos-sa <bedos-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/04 10:56:59 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/06 11:20:12 by edlucca          ###   ########.fr       */
+/*   Created: 2023/05/05 17:04:53 by bedos-sa          #+#    #+#             */
+/*   Updated: 2023/05/12 15:55:09 by bedos-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+char	*ft_strdup(const char *s)
 {
-	t_ps stack;
+	int		i;
+	char	*ptr;
 
-	if (ac == 1)
-		return (0);
-	if(input_validation(ac, av, &stack) < 0)
-		return (ft_putstr_fd("Error\n", 2), 1);
-
+	i = ft_strlen((char *) s);
+	ptr = malloc((i + 1) * sizeof(char));
+	if (ptr == NULL)
+		return (NULL);
+	ft_memcpy(ptr, s, i);
+	ptr[i] = '\0';
+	return (ptr);
 }

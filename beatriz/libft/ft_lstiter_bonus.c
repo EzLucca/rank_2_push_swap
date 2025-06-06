@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: bedos-sa <bedos-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/04 10:56:59 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/06 11:20:12 by edlucca          ###   ########.fr       */
+/*   Created: 2023/05/16 14:12:51 by bedos-sa          #+#    #+#             */
+/*   Updated: 2023/05/16 15:20:10 by bedos-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_ps stack;
+	t_list	*ptr;
 
-	if (ac == 1)
-		return (0);
-	if(input_validation(ac, av, &stack) < 0)
-		return (ft_putstr_fd("Error\n", 2), 1);
-
+	ptr = lst;
+	while (ptr != NULL)
+	{
+		f(ptr->content);
+		ptr = ptr->next;
+	}
 }

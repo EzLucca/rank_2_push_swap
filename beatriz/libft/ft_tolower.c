@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: bedos-sa <bedos-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/04 10:56:59 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/06 11:20:12 by edlucca          ###   ########.fr       */
+/*   Created: 2023/05/04 14:38:48 by bedos-sa          #+#    #+#             */
+/*   Updated: 2023/05/04 14:40:35 by bedos-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int	ft_tolower(int c)
 {
-	t_ps stack;
-
-	if (ac == 1)
-		return (0);
-	if(input_validation(ac, av, &stack) < 0)
-		return (ft_putstr_fd("Error\n", 2), 1);
-
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	else
+		return (c);
 }

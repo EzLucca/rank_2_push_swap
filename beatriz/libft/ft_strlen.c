@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: bedos-sa <bedos-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/04 10:56:59 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/06 11:20:12 by edlucca          ###   ########.fr       */
+/*   Created: 2023/05/01 15:29:17 by bedos-sa          #+#    #+#             */
+/*   Updated: 2023/07/11 17:42:19 by bedos-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+// RETURN VALUE: The strlen() function returns the number of bytes in the 
+// string str.
 
-int	main(int ac, char **av)
+#include "libft.h"
+
+size_t	ft_strlen(char *str)
 {
-	t_ps stack;
+	size_t	i;
 
-	if (ac == 1)
-		return (0);
-	if(input_validation(ac, av, &stack) < 0)
-		return (ft_putstr_fd("Error\n", 2), 1);
-
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }

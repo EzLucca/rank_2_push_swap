@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: bedos-sa <bedos-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/04 10:56:59 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/06 11:20:12 by edlucca          ###   ########.fr       */
+/*   Created: 2023/08/26 14:59:02 by bedos-sa          #+#    #+#             */
+/*   Updated: 2023/08/30 11:52:02 by bedos-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	free_for_all(t_stacks *stacks)
 {
-	t_ps stack;
-
-	if (ac == 1)
-		return (0);
-	if(input_validation(ac, av, &stack) < 0)
-		return (ft_putstr_fd("Error\n", 2), 1);
-
+	ft_clearnodes_a(&stacks->head_a);
+	ft_clearnodes_b(&stacks->head_b);
+	free(stacks->values);
+	free(stacks->moves);
+	free(stacks->cheap);
 }

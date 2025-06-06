@@ -14,28 +14,27 @@
 # define PUSH_SWAP_H
 
 // Libraries
-# include <unistd.h>
-# include <stdlib.h>
-
-// struct
-typedef struct s_node
-{
-	int				value;
-	int				index;
-	struct s_node *next;
-	struct s_node *prev;
-} t_node;
-
-typedef struct s_stack
-{
-	t_node *top;
-	int		size;
-} t_stack;
+# include "library/libft.h"
 
 typedef struct s_ps
 {
-	t_stack *a;
-	t_stack *b;
+	int		*a;
+	int		*b;
+	int		ac;
+	int		height_a;
+	int		height_b;
 } t_ps;
 
+// Input validation
+int	input_validation(int ac, char **av, t_ps *stack);
+// // Check for doubles
+int	double_validation(t_ps *stack);
+// // check int size
+// // check integers
+int	number_validation(int ac, char **av);
+int	ft_isnum(char *str);
+// error Handling
+// stack operations
+int	initialize_stacks(int ac, char **av, t_ps *stack, int number_count);
+// moves 
 #endif // !PUSH_SWAP_H

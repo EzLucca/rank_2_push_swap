@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: bedos-sa <bedos-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/04 10:56:59 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/06 11:20:12 by edlucca          ###   ########.fr       */
+/*   Created: 2023/05/01 10:02:46 by bedos-sa          #+#    #+#             */
+/*   Updated: 2023/05/10 12:13:12 by bedos-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+// RETURN VALUE: The values returned are nonzero if the character c falls into 
+// the tested class, and a zero value if not.
 
-int	main(int ac, char **av)
+#include "libft.h"
+
+int	ft_isalnum(int c)
 {
-	t_ps stack;
-
-	if (ac == 1)
+	if ((ft_isalpha(c) != 0) || (ft_isdigit(c) != 0))
+		return (1);
+	else
 		return (0);
-	if(input_validation(ac, av, &stack) < 0)
-		return (ft_putstr_fd("Error\n", 2), 1);
-
 }
