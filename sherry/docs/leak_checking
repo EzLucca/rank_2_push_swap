@@ -1,0 +1,4 @@
+valgrind --leak-check=full ./my_program
+这个是看有没有leak，./后面就跟正常的push_swap + 数字就行
+valgrind --leak-check=full --show-leak-kinds=all -s ./my_program
+这个是看具体的leak是在那个位置

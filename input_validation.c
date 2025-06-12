@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	input_validation(int ac, char **av, t_ps *stack)
+int	input_validation(int ac, char **av, t_ps *st)
 {
 	int i;
 	int number_count;
@@ -26,14 +26,14 @@ int	input_validation(int ac, char **av, t_ps *stack)
 	number_count = number_validation(ac, av);
 	if (number_count == -1)
 		return (-1);
-	if (initialize_stacks(ac, av, stack, number_count) == -1)
+	if (initialize_stacks(ac, av, st, number_count) == -1)
 	{
-		free_stacks(stack);
+		free_stacks(st);
 		return (-2);
 	}
-	if (double_validation(stack)== -1)
+	if (double_validation(st)== -1)
 	{
-		free_stacks(stack);
+		free_stacks(st);
 		return (-3);
 	}
 	return (0);
@@ -69,16 +69,16 @@ int	number_validation(int ac, char **av)
 }
 
 // initialize_stacks
-int	initialize_stacks(int ac, char **av, t_ps *stack, int number_count)
+int	initialize_stacks(int ac, char **av, t_ps *st, int number_count)
 {
 	int	i;
 	int	j;
 	int	k;
 	char **array;
 
-	stack->a = malloc(sizeof(int) * (number_count));
-	stack->b = malloc(sizeof(int) * (number_count));
-	if(!stack->a || !stack->b)
+	st->a = malloc(sizeof(int) * (number_count));
+	st->b = malloc(sizeof(int) * (number_count));
+	if(!st->a || !st->b)
 		return(-1);
 	k = 0;
 	i = 1;
@@ -89,28 +89,28 @@ int	initialize_stacks(int ac, char **av, t_ps *stack, int number_count)
 		if(!array)
 			return(-1);
 		while (array[j])
-			stack->a[k++] = ft_atoi(arr[j++]);
+			st->a[k++] = ft_atoi(arr[j++]);
 		//free array
 	}
-	stack->ac = number_count + 1;
-	stack->height_a = stack->ac -1;
-	stack->height_b = 0;
+	st->ac = number_count + 1;
+	st->height_a = st->ac -1;
+	st->height_b = 0;
 	return (0);
 }
 
 // check for doubles
-int	double_validation(t_ps *stack)
+int	double_validation(t_ps *st)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < stack->height_a)
+	while (i < st->height_a)
 	{
 		j = i + 1;
-		while (j < stack->height_a)
+		while (j < st->height_a)
 		{
-			if (stack->a[i] == stack->a[j])
+			if (st->a[i] == st->a[j])
 				return (-1);
 			j++;
 		}
@@ -140,4 +140,3 @@ int	ft_isnum(char *str)
 	}
 	return (1);
 }
-

@@ -1,0 +1,84 @@
+Push_swap - Identity test
+In this section, we'll evaluate push_swap's behavior when given
+a list, which has already been sorted. Execute the following 3
+tests. If at least one fails, no points will be awarded for this
+section. Move to the next one.
+• Run the following command "$>./push_swap 42". The program
+should display nothing (0 instruction).
+• Run the following command "$>./push_swap 2 3". The
+program should display nothing (0 instruction).
+• Run the following command "$>./push_swap 0 1 2 3". The
+program should display nothing (0 instruction).
+• Run the following command "$>./push_swap 0 1 2 3 4 5 6 7 8
+9". The program should display nothing (0 instruction).
+• Run the following command "$>./push_swap 'Between 0 and 9 randomly
+sorted values chosen>'. The program should display nothing
+(0 instruction
+
+
+Push_swap - Simple version
+If the following tests fails, no points will be awarded for this
+section. Move to the next one. Use the checker binary given on the
+attachments.
+• Run "$>ARG="2 1 0"; ./push_swap $ARG | ./checker_OS $ARG".
+Check that the checker program displays "OK" and that the
+size of the list of instructions from push_swap is 2 OR 3.
+Otherwise the test fails.
+• Run "$>ARG="'Between 0 and 3 randomly values chosen'"; ./push_swap
+$ARG | ./checker_OS $ARG". Check that the checker program displays
+"OK" and that the size of the list of instructions from push_swap
+is between 0 AND 3. Otherwise the test fails
+
+
+
+Execute the following 2 tests. If at least one fails, no points
+will be awarded for this section. Move to the next one. Use the checker
+binary given on the attachments.
+• Run "$>ARG="1 5 2 4 3"; ./push_swap $ARG | ./checker_OS $ARG".
+Check that the checker program displays "OK" and that the
+size of the list of instructions from push_swap isn't more
+than 12. Kudos if the size of the list of instructions is 8.
+• Run "$>ARG="<5 random values>"; ./push_swap $ARG | ./checker_OS
+$ARG" and replace the placeholder by 5 random valid values.
+Check that the checker program displays "OK" and that the
+size of the list of instructions from push_swap isn't more
+than 12. Otherwise this test fails. You'll have to
+specifically check that the program wasn't developed to only
+answer correctly on the test included in this scale. You
+should repeat this test couple of times with several
+permutations before you validate it
+
+
+
+
+Push_swap - Middle version
+If the following test fails, no points will be awarded for this
+section. Move to the next one. Move to the next one. Use the checker
+binary given on the attachments.
+• Run "$>ARG="<100 random values>"; ./push_swap $ARG | ./checker_OS $ARG" and replace the
+placeholder by 100 random valid values. Check that the checker program displays "OK" and that the
+size of the list of instructions. Give points in accordance:
+◦ less than 700: 5
+◦ less than 900: 4
+◦ less than 1100: 3
+◦ less than 1300: 2
+◦ less than 1500: 1 You'll have to specifically check that the program wasn't developed to only
+answer correctly on the test included in this scale. You should repeat this test couple of times
+with several permutations before you validate it.
+
+
+
+Push_swap - Advanced version
+If the following test fails, no points will be awarded for this
+section. Move to the next one. Move to the next one. Use the checker
+binary given on the attachments.
+• Run "$>ARG="<500 random values>"; ./push_swap $ARG | ./checker_OS $ARG" and replace the
+placeholder by 500 random valid values (One is not called John/Jane Script for nothing). Check that
+the checker program displays "OK" and that the size of the list of instructions
+◦ less than 5500: 5
+◦ less than 7000: 4
+◦ less than 8500: 3
+◦ less than 10000: 2
+◦ less than 11500: 1 You'll have to specifically check that the program wasn't developed to only
+answer correctly on the test included in this scale. You should repeat this test couple of times
+with several permutations before you validate it.

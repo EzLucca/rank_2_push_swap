@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "../../include/checker_bonus.h"
 
 void	error_read_op(t_ps *data, char *line)
 {

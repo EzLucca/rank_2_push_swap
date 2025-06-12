@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "../../include/checker_bonus.h"
 
 int	main(int argc, char *argv[])
 {

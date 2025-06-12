@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "../../include/stack.h"
 
 void	fill_stack(t_ps *data, t_stack *stk, int size, char **arg)
 {

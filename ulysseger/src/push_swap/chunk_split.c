@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../include/push_swap.h"
 
 void	chunk_split(t_ps *data, t_chunk *to_split, t_split_dest *dest)
 {

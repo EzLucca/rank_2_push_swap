@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 // Libraries
-# include "library/libft.h"
+# include "library/libft/libft.h"
 
 typedef struct s_ps
 {
@@ -26,15 +26,32 @@ typedef struct s_ps
 } t_ps;
 
 // Input validation
-int	input_validation(int ac, char **av, t_ps *stack);
+int	input_validation(int ac, char **av, t_ps *st);
 // // Check for doubles
-int	double_validation(t_ps *stack);
+int	double_validation(t_ps *st);
 // // check int size
 // // check integers
 int	number_validation(int ac, char **av);
 int	ft_isnum(char *str);
+
 // error Handling
+
 // stack operations
-int	initialize_stacks(int ac, char **av, t_ps *stack, int number_count);
+int	initialize_stacks(int ac, char **av, t_ps *st, int number_count);
+
+
 // moves 
+int move_push_a(t_ps *st, int print_flag);
+int move_push_b(t_ps *st, int print_flag);
+
+int	move_swap_a(t_ps *st, int print_flag);
+int	move_swap_b(t_ps *st, int print_flag);
+
+int move_rotate_a(t_ps *st, int print_flag);
+int move_rotate_b(t_ps *st, int print_flag);
+int	move_rotate_r(t_ps *st, int print_flag);
+
+int move_reverse_rotate_a(t_ps *st, int print_flag);
+int move_reverse_rotate_b(t_ps *st, int print_flag);
+int move_reverse_rotate_r(t_ps *st, int print_flag);
 #endif // !PUSH_SWAP_H

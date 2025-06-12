@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "../../include/stack.h"
 
 void	init_data(t_ps *data, int argc, char **argv, bool writing_mode)
 {
