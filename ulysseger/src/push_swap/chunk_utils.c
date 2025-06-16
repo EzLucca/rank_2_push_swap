@@ -16,7 +16,7 @@ int	chunk_value(t_ps *data, t_chunk *chunk, int n)
 {
 	t_loc	loc;
 	t_stack	*stk;
-	int		i;
+	int		i = 0;
 
 	loc = chunk->loc;
 	stk = loc_to_stack(data, loc);
@@ -38,7 +38,7 @@ int	chunk_max_value(t_ps *data, t_chunk *chunk)
 	t_stack	*stk;
 	int		size;
 	int		max_value;
-	int		i;
+	int		i = 0;
 
 	stk = loc_to_stack(data, chunk->loc);
 	size = chunk->size;

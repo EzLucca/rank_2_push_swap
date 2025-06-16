@@ -6,7 +6,7 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 11:16:12 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/06 11:55:02 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/16 12:56:10 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ int	number_validation(int ac, char **av)
 			if (ft_isnum(array[j]) && (ft_strlen(array[j]) < 3 || ft_atoi(array[j]) != 0))
 				count++;
 			else
-				return(/*free 2d array*/);
+				return(free_array((void ***)&array), -1);
 			j++;
 		}
-		// free 2d array
+		free_array((void ***)&array);
 	}
 	return (count);
 }
@@ -89,8 +89,8 @@ int	initialize_stacks(int ac, char **av, t_ps *st, int number_count)
 		if(!array)
 			return(-1);
 		while (array[j])
-			st->a[k++] = ft_atoi(arr[j++]);
-		//free array
+			st->a[k++] = ft_atoi(array[j++]);
+		free_array((void ***)&array);
 	}
 	st->ac = number_count + 1;
 	st->height_a = st->ac -1;

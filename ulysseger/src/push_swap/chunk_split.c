@@ -14,8 +14,8 @@
 
 void	chunk_split(t_ps *data, t_chunk *to_split, t_split_dest *dest)
 {
-	int	pivot_1;
-	int	pivot_2;
+	int	pivot_1 = 0;
+	int	pivot_2 = 0;
 	int	max_value;
 	int	next_value;
 

@@ -6,7 +6,7 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 11:17:03 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/04 11:25:28 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/16 16:13:11 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 // Libraries
 # include "library/libft/libft.h"
+# include <stdbool.h>
 
 typedef struct s_ps
 {
@@ -23,6 +24,7 @@ typedef struct s_ps
 	int		ac;
 	int		height_a;
 	int		height_b;
+	struct s_ps *next;
 } t_ps;
 
 // Input validation
@@ -54,4 +56,8 @@ int	move_rotate_r(t_ps *st, int print_flag);
 int move_reverse_rotate_a(t_ps *st, int print_flag);
 int move_reverse_rotate_b(t_ps *st, int print_flag);
 int move_reverse_rotate_r(t_ps *st, int print_flag);
+
+// utils
+void	free_stacks(t_ps *st);
+void	free_array(void ***array);
 #endif // !PUSH_SWAP_H
