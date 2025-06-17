@@ -1,46 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves_swap.c                                       :+:      :+:    :+:   */
+/*   stacks_op.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/04 11:10:39 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/17 15:21:01 by edlucca          ###   ########.fr       */
+/*   Created: 2025/06/17 11:34:43 by edlucca           #+#    #+#             */
+/*   Updated: 2025/06/17 15:21:05 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	move_swap(t_stack **st)
+t_stack	*ft_stack_last(t_stack **st)
 {
-	t_stack	*first;
-	t_stack	*rest;
+	t_stack	*tmp;
 
-	first = (*st)->next;
-	rest = first->next;
-	first->next = *st;
-	(*st)->next = rest;
-	(*st) = first;
+	tmp = *st;
+	while(tmp->next)
+		tmp = tmp->next;
+	return(tmp);
 }
 
-// move_sa
-void	swap_a(t_stack **st)
+int	ft_stack_size(t_stack **st)
 {
-	move_swap(st);
-	ft_printf("sa\n");
-}
+	int		i;
+	t_stack	*tmp;
 
-// move_sb
-void	swap_b(t_stack **st)
-{
-	move_swap(st);
-	ft_printf("sb\n");
-}
-// move_ss
-void	swap_s(t_stack **st_a, t_stack **st_b)
-{
-	move_swap(st_a);
-	move_swap(st_b);
-	ft_printf("ss\n");
+	i = 0;
+	tmp = *st;
+	while (tmp)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
 }

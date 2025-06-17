@@ -5,138 +5,87 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/06 11:16:12 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/16 12:56:10 by edlucca          ###   ########.fr       */
+/*   Created: 2025/06/17 10:59:43 by edlucca           #+#    #+#             */
+/*   Updated: 2025/06/17 13:38:29 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	input_validation(int ac, char **av, t_ps *st)
+void parse_av(char **av)
 {
-	int i;
-	int number_count;
+	check_repetition(av);
+	check_int(av);
+}
 
-	i = 1;
+char	**input_validation(char **av, bool split)
+{
+	if (split == true)
+	{
+		av = ft_split(av[1], ' ');
+		split = true;
+		if (!av)
+		{
+			ft_putstr_fd("Error\n", 2);
+			free_arrays(av);
+			exit(1);
+		}
+	}
+	else
+		av = av + 1;
+	return(av);
+}
+
+void	check_repetition(char **av)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
 	while (av[i])
 	{
-		if (ft_strlen(av[i]) == 0)
-			return (-1);
-	}
-	number_count = number_validation(ac, av);
-	if (number_count == -1)
-		return (-1);
-	if (initialize_stacks(ac, av, st, number_count) == -1)
-	{
-		free_stacks(st);
-		return (-2);
-	}
-	if (double_validation(st)== -1)
-	{
-		free_stacks(st);
-		return (-3);
-	}
-	return (0);
-}
-
-// number_validation
-int	number_validation(int ac, char **av)
-{
-	int i;
-	int j;
-	int	count;
-	char **array;
-
-	count = 0;
-	i = 1;
-	while (i < ac)
-	{
-		j = 0;
-		array = ft_split(av[i++], ' ');
-		if(!array)
-			return(-1);
-		while (array[j])
-		{
-			if (ft_isnum(array[j]) && (ft_strlen(array[j]) < 3 || ft_atoi(array[j]) != 0))
-				count++;
-			else
-				return(free_array((void ***)&array), -1);
-			j++;
-		}
-		free_array((void ***)&array);
-	}
-	return (count);
-}
-
-// initialize_stacks
-int	initialize_stacks(int ac, char **av, t_ps *st, int number_count)
-{
-	int	i;
-	int	j;
-	int	k;
-	char **array;
-
-	st->a = malloc(sizeof(int) * (number_count));
-	st->b = malloc(sizeof(int) * (number_count));
-	if(!st->a || !st->b)
-		return(-1);
-	k = 0;
-	i = 1;
-	while (i < ac)
-	{
-		j = 0;
-		array = ft_split(av[i++], ' ');
-		if(!array)
-			return(-1);
-		while (array[j])
-			st->a[k++] = ft_atoi(array[j++]);
-		free_array((void ***)&array);
-	}
-	st->ac = number_count + 1;
-	st->height_a = st->ac -1;
-	st->height_b = 0;
-	return (0);
-}
-
-// check for doubles
-int	double_validation(t_ps *st)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < st->height_a)
-	{
 		j = i + 1;
-		while (j < st->height_a)
+		while (av[j])
 		{
-			if (st->a[i] == st->a[j])
-				return (-1);
+			if(!ft_strncmp(av[j], av[i], sizeof(int)))
+			{
+				ft_putstr_fd("Error\n", 2);
+				exit(19);
+			}
 			j++;
 		}
 		i++;
 	}
-	return(1);
 }
 
-int	ft_isnum(char *str)
+int	ft_isdigit_mod(int c)
+{
+	if ((c >= '0' && c <= '9') || c == '+' || c == '-')
+		return (1);
+	else
+		return (0);
+}
+
+void	check_int(char **av)
 {
 	int	i;
+	int	j;
 
-	if (!str || ft_strlen(str) == 0)
-		return (0);
 	i = 0;
-	if (str[0] == '+' || str[0] == '-')
+	j = 0;
+	while (av[i])
 	{
-		if (ft_strlen(str) == 1)
-			return (0);
+		j = 0;
+		while(av[i][j])
+		{
+			if (!ft_isdigit_mod(av[i][j]))
+			{
+				ft_putstr_fd("Error\n", 2);
+				exit(20);
+			}
+			j++;
+		}
 		i++;
 	}
-	while (str[i])
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-		i++;
-	}
-	return (1);
 }
