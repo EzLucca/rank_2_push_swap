@@ -13,20 +13,17 @@
 
 int main(int ac, char **av)
 {
-	t_stack *stack_a;
-	t_stack *stack_b;
-	bool	split;
+	t_stack *st_a;
+	t_stack *st_b;
 
 	if (ac < 2)
 		return (0);
-	split = false;
-	if (ac == 2)
-		split = true;
-	av = input_validation(av, split);
-	parse_av(av);
-	push_swap(av, &stack);
-	if (split == true)
-		free_arrays(av);
-	free_stack(&stack);
-	return (0);
+	st_a = NULL;
+	st_b = NULL;
+	create_stack(ac, av, &st_a);
+	if (!st_a || duplicates_check(st_a))
+		free_exit(&st_a, &st_b);
+	if(!ascending_check(&st_a))
+		sorting_stack(&st_a, &st_b);
+	free_exit(&st_a, &st_b);
 }

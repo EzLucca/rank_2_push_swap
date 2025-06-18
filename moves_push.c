@@ -13,17 +13,17 @@
 #include "push_swap.h"
 // Functions to create
 //  - push_a
-void	move_push(t_stack **st_c, t_stack **st_d)
+void	move_push(t_stack **src, t_stack **dst)
 {
 	t_stack	*first;
 
-	first = (*st_c);
-	(*st_c) = (*st_c)->next;
-	if ((*st_d) == NULL)
+	first = (*src);
+	(*src) = (*src)->next;
+	if ((*dst) == NULL)
 		first->next = NULL; 
 	else
-		first->next = (*st_d);
-	(*st_d) = first;
+		first->next = (*dst);
+	(*dst) = first;
 }
 
 // - push_a

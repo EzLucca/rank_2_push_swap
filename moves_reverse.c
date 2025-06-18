@@ -19,7 +19,7 @@ void	reverse_rotate(t_stack **st)
 	
 	first = ft_stack_last(st);
 	last = (*st);
-	while (last->next->next != NULL)
+	while (last->next != NULL)
 		last = last->next;
 	first->next = (*st);
 	last->next = NULL;

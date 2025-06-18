@@ -14,14 +14,12 @@
 
 void	move_swap(t_stack **st)
 {
-	t_stack	*first;
-	t_stack	*rest;
+	t_stack	*tmp;
 
-	first = (*st)->next;
-	rest = first->next;
-	first->next = *st;
-	(*st)->next = rest;
-	(*st) = first;
+	tmp = *st;
+	*st = (*st)->next;
+	tmp->next = (*st)->next;
+	(*st)->next = tmp;
 }
 
 // move_sa

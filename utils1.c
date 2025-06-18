@@ -6,7 +6,7 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:09:09 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/17 15:21:07 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/18 17:22:33 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,23 @@ void	free_arrays(char **av)
 	}
 }
 
-void	error(t_stack **st, int num)
+void	error_found(void)
 {
-	if (num == 1)
-		ft_putstr_fd("Error\n", 2);
-	free_stack(st);
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
+}
+
+void	free_exit(t_stack **st_a, t_stack **st_b)
+{
+	free_stack(st_a);
+	free_stack(st_b);
+	exit(0);
+}
+
+int	max_return(int a, int b)
+{
+	if (a > b)
+		return (a);
+	else
+		return (b);
 }
