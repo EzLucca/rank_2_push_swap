@@ -6,7 +6,7 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 11:17:03 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/18 17:36:45 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/18 21:23:49 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,11 @@ void	ra_rb_rr(t_stack **st_a, t_stack **st_b, t_stack *node, t_stack *target);
 void	rra_rrb_rrr(t_stack **st_a, t_stack **st_b, t_stack *node, t_stack *target);
 
 // operations_b.c
-t_stack	*find_target_b(t_stack **st_b, t_stack *node);
-t_stack	*find_node_a(t_stack **st_a, t_stack **st_b);
-int	execute_b(t_stack **st_a, t_stack **st_b, t_stack *node, t_stack *target);
-void	a_to_b(t_stack **st_a, t_stack **st_b);
+t_stack	*find_target(t_stack **dst, t_stack *node);
+t_stack	*find_node(t_stack **src, t_stack **dst);
+int	executor(t_stack **src, t_stack **dst, t_stack *node, t_stack *target);
+void	src_to_dst(t_stack **src, t_stack **dst);
+
 // stack operations
 int	stack_size(t_stack **st);
 int	stack_max(t_stack **stack);
@@ -73,20 +74,20 @@ void	sort_stack(t_stack **st_a, t_stack **st_b);
 
 // moves 
 void	move_push(t_stack **src, t_stack **dst);
-void	push_a(t_stack **st_b, t_stack **st_a);
-void	push_b(t_stack **st_a, t_stack **st_b);
+void	push_a(t_stack **src, t_stack **dst);
+void	push_b(t_stack **src, t_stack **dst);
 
-void	move_swap(t_stack **st);
+void	move_swap(t_stack **src);
 void	swap_a(t_stack **st);
 void	swap_b(t_stack **st);
 void	swap_s(t_stack **st_a, t_stack **st_b);
 
-void	move_rotate(t_stack **st);
+void	move_rotate(t_stack **src);
 void	rotate_a(t_stack **st);
 void	rotate_b(t_stack **st);
 void	rotate_r(t_stack **st_a, t_stack **st_b);
 
-void	move_reverse_rotate(t_stack **st);
+void	move_reverse_rotate(t_stack **src);
 void	reverse_rotate_a(t_stack **st);
 void	reverse_rotate_b(t_stack **st);
 void	reverse_rotate_r(t_stack **st_a, t_stack **st_b);

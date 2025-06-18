@@ -24,6 +24,6 @@ int main(int ac, char **av)
 	if (!st_a || duplicates_check(st_a))
 		free_exit(&st_a, &st_b);
 	if(!ascending_check(&st_a))
-		sorting_stack(&st_a, &st_b);
+		sort_stack(&st_a, &st_b);
 	free_exit(&st_a, &st_b);
 }

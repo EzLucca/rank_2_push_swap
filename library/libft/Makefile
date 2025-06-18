@@ -1,5 +1,11 @@
 NAME = libft.a
 
+DIR_SRC = .
+
+DIR_OBJ = $(DIR_SRC)/objects
+
+LIBFT_FLAGS = -L $(DIR_LIB) -lft
+
 COMPILER = cc
 
 CFLAGS = -Wall -Wextra -Werror
@@ -56,14 +62,22 @@ BONUSFILES = 	ft_lstnew_bonus.c \
 				ft_lstiter_bonus.c \
 				ft_lstmap_bonus.c \
 
-C_OBJECTS = $(SRCS:.c=.o)
+OBJECTS = $(patsubst %.c, $(DIR_OBJ)/%.o, $(notdir $(SOURCES)))
 
 BONUS_OBJECTS = $(BONUSFILES:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(C_OBJECTS)
+$(NAME): $(OBJECTS)
 	ar rcs $@ $^
+
+$(DIR_OBJ)/%.o: $(DIR_SRC)/%.c | $(DIR_OBJ)
+	@$(COMPILER) $(CFLAGS) $(HEADERS) -c $< -o $@
+	@echo "compiling $<"
+
+$(DIR_OBJ):
+	@mkdir -p $(DIR_OBJ)
+	@echo "Making objects directory"
 
 bonus: .bonus
 
@@ -71,15 +85,14 @@ bonus: .bonus
 	$(AR) $(NAME) $^
 	@touch .bonus
 
-%.o: %.c
-	$(COMPILER) $(CFLAGS) -c $< -o $@
-
 clean:
-	rm -f $(C_OBJECTS) $(BONUS_OBJECTS)
+	@$(RM) $(DIR_OBJ)
+	@echo "libft objects are removed!"
 
 fclean: clean
 	rm -f $(NAME)
 	@rm -f .bonus
+	@echo "All executable files are removed!"
 
 re: fclean all
 

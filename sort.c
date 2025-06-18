@@ -6,7 +6,7 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 13:40:26 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/18 14:18:43 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/18 20:57:43 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	sort_big(t_stack **st_a, t_stack **st_b)
 	while (stack_size(st_a) > 3 && i--)
 		push_b(st_a, st_b);
 	if (stack_size(st_a) > 3)
-		a_to_b(st_a, st_b);
+		src_to_dst(st_a, st_b);
 	if (!ascending_check(st_a))
 		sort_three(st_a);
-	b_to_a(st_a, st_b);
+	src_to_dst(st_b, st_a);
 	if (!ascending_check(st_a))
 	{
 		i = stack_position(st_a, stack_min(st_a));

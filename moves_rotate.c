@@ -6,23 +6,23 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 11:11:03 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/18 14:14:40 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/18 21:23:35 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 // Functions to create
 // - move_rotate
-void	move_rotate(t_stack **st)
+void	move_rotate(t_stack **src)
 {
 	t_stack	*first;
 	t_stack	*last;
 
-	first = (*st)->next;
-	last = ft_stack_last(st);
-	last->next = *st;
-	(*st)->next = NULL;
-	(*st) = first;
+	first = (*src)->next;
+	last = stack_last(src);
+	last->next = *src;
+	(*src)->next = NULL;
+	(*src) = first;
 }
 
 // - rotate_a

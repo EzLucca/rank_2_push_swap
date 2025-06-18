@@ -6,20 +6,20 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 11:10:39 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/17 15:21:01 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/18 21:24:15 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	move_swap(t_stack **st)
+void	move_swap(t_stack **src)
 {
 	t_stack	*tmp;
 
-	tmp = *st;
-	*st = (*st)->next;
-	tmp->next = (*st)->next;
-	(*st)->next = tmp;
+	tmp = *src;
+	*src = (*src)->next;
+	tmp->next = (*src)->next;
+	(*src)->next = tmp;
 }
 
 // move_sa

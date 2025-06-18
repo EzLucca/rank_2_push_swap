@@ -6,7 +6,7 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 11:10:48 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/17 15:20:39 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/18 21:19:19 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,21 @@ void	move_push(t_stack **src, t_stack **dst)
 }
 
 // - push_a
-void	push_a(t_stack **st_b, t_stack **st_a)
+void	push_a(t_stack **src, t_stack **dst)
 {
-	if (*st_b != NULL)
+	if (*src!= NULL)
 	{
-		move_push(st_b, st_a);
+		move_push(src, dst);
 		ft_printf("pa\n");
 	}
 }
 
 //  - push_b
-void	push_b(t_stack **st_a, t_stack **st_b)
+void	push_b(t_stack **src, t_stack **dst)
 {
-	if (*st_a != NULL)
+	if (*src != NULL)
 	{
-		move_push(st_a, st_b);
+		move_push(src, dst);
 		ft_printf("pb\n");
 	}
 }

@@ -6,57 +6,57 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:08:50 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/18 16:37:02 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/18 21:16:14 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra_rra(t_stack **st_a, t_stack *node)
+void	ra_rra(t_stack **a, t_stack *node)
 {
 	if (node->info.rotate < node->info.reverse)
 	{
-		while (*st_a != node)
-			rotate_a(st_a);
+		while (*a != node)
+			rotate_a(a);
 	}
 	else
 	{
-		while (*st_a != node)
-			reverse_rotate_a(st_a);
+		while (*a != node)
+			reverse_rotate_a(a);
 	}
 }
 
-void	rb_rrb(t_stack **st_b, t_stack *node)
+void	rb_rrb(t_stack **b, t_stack *node)
 {
 	if (node->info.rotate < node->info.reverse)
 	{
-		while (*st_b != node)
-			rotate_b(st_b);
+		while (*b != node)
+			rotate_b(b);
 	}
 	else
 	{
-		while (*st_b != node)
-			reverse_rotate_b(st_b);
+		while (*b != node)
+			reverse_rotate_b(b);
 	}
 }
 
-void	ra_rb_rr(t_stack **st_a, t_stack **st_b, t_stack *node, t_stack *target)
+void	ra_rb_rr(t_stack **a, t_stack **b, t_stack *node, t_stack *target)
 {
-	while (*st_a != node && *st_b != target)
-		rotate_r(st_a, st_b);
-	while (*st_a != node)
-		rotate_a(st_a);
-	while (*st_b != target)
-		rotate_b(st_b);
+	while (*a != node && *b != target)
+		rotate_r(a, b);
+	while (*a != node)
+		rotate_a(a);
+	while (*b != target)
+		rotate_b(b);
 }
 
-void	rra_rrb_rrr(t_stack **st_a, t_stack **st_b, t_stack *node, t_stack *target)
+void	rra_rrb_rrr(t_stack **a, t_stack **b, t_stack *node, t_stack *target)
 {
-	while (*st_a != node && *st_b != target)
-		reverse_rotate_r(st_a, st_b);
-	while (*st_a != node)
-		reverse_rotate_a(st_a);
-	while (*st_b != target)
-		reverse_rotate_b(st_b);
+	while (*a != node && *b != target)
+		reverse_rotate_r(a, b);
+	while (*a != node)
+		reverse_rotate_a(a);
+	while (*b != target)
+		reverse_rotate_b(b);
 }
 

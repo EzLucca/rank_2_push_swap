@@ -6,24 +6,24 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 11:10:55 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/17 15:20:47 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/18 21:22:17 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 // Functions to create
-void	reverse_rotate(t_stack **st)
+void	reverse_rotate(t_stack **src)
 {
 	t_stack	*first;
 	t_stack	*last;
 	
-	first = ft_stack_last(st);
-	last = (*st);
+	first = stack_last(src);
+	last = (*src);
 	while (last->next != NULL)
 		last = last->next;
-	first->next = (*st);
+	first->next = (*src);
 	last->next = NULL;
-	(*st) = first;
+	(*src) = first;
 }
 //  - reverse_a
 void	reverse_rotate_a(t_stack **st)
