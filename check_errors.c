@@ -48,7 +48,7 @@ bool	syntax_check(char *str)
 {
 	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
 		str++;
-	if (*str == '+' || *str == '-')
+	if (*str == '-' || *str == '+')
 		str++;
 	if (!*str)
 		return (true);
@@ -70,7 +70,8 @@ bool	overflow_check(long nbr, int sign, char c)
 	if (nbr > INT_MAX / 10 || (nbr == INT_MAX / 10 && number > INT_MAX % 10))
 		if (sign == 1)
 			return (true);
-	if (nbr > -(INT_MIN / 10) || (nbr == -(INT_MIN / 10) && number > -(INT_MIN % 10)))
+	if (nbr > -(INT_MIN / 10)
+			|| (nbr == -(INT_MIN / 10) && number > -(INT_MIN % 10)))
 		if (sign == -1)
 			return (true);
 	return (false);
@@ -85,7 +86,7 @@ bool	int_check(char *str)
 	nbr = 0;
 	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
 		str++;
-	if (*str == '+' || *str == '-')
+	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
 			sign = -1;

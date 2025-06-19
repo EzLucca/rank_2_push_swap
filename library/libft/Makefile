@@ -4,15 +4,17 @@ DIR_SRC = .
 
 DIR_OBJ = $(DIR_SRC)/objects
 
+HEADERS = -I .
+
 LIBFT_FLAGS = -L $(DIR_LIB) -lft
 
 COMPILER = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 AR = ar rcs
 
-RM = rm -f
+RM = rm -rf
 
 SRCS = 	ft_isalpha.c \
 		ft_isdigit.c \
@@ -62,14 +64,15 @@ BONUSFILES = 	ft_lstnew_bonus.c \
 				ft_lstiter_bonus.c \
 				ft_lstmap_bonus.c \
 
-OBJECTS = $(patsubst %.c, $(DIR_OBJ)/%.o, $(notdir $(SOURCES)))
+OBJECTS = $(patsubst %.c, $(DIR_OBJ)/%.o, $(notdir $(SRCS)))
 
-BONUS_OBJECTS = $(BONUSFILES:.c=.o)
+BONUS_OBJECTS = $(patsubst %.c, $(DIR_OBJ)/%.o, $(notdir $(BONUSFILES)))
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	ar rcs $@ $^
+	@ar rcs $@ $^
+	@echo "$(NAME) was created"
 
 $(DIR_OBJ)/%.o: $(DIR_SRC)/%.c | $(DIR_OBJ)
 	@$(COMPILER) $(CFLAGS) $(HEADERS) -c $< -o $@
@@ -77,7 +80,7 @@ $(DIR_OBJ)/%.o: $(DIR_SRC)/%.c | $(DIR_OBJ)
 
 $(DIR_OBJ):
 	@mkdir -p $(DIR_OBJ)
-	@echo "Making objects directory"
+	@echo "Making directory for $(NAME) objects"
 
 bonus: .bonus
 
@@ -87,12 +90,12 @@ bonus: .bonus
 
 clean:
 	@$(RM) $(DIR_OBJ)
-	@echo "libft objects are removed!"
+	@echo "Objects of $(NAME) are removed!"
 
 fclean: clean
-	rm -f $(NAME)
+	@$(RM) $(NAME)
 	@rm -f .bonus
-	@echo "All executable files are removed!"
+	@echo "Executable $(NAME) is removed!"
 
 re: fclean all
 

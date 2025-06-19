@@ -6,7 +6,7 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 11:17:03 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/18 21:23:49 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/19 15:49:21 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,18 @@ void	rb_rrb(t_stack **st_b, t_stack *node);
 void	ra_rb_rr(t_stack **st_a, t_stack **st_b, t_stack *node, t_stack *target);
 void	rra_rrb_rrr(t_stack **st_a, t_stack **st_b, t_stack *node, t_stack *target);
 
+//operations_a
+t_stack	*find_target_b(t_stack **dst, t_stack *node);
+t_stack	*find_node_b(t_stack **src, t_stack **dst);
+int	execute_a(t_stack **src, t_stack **dst, t_stack *node, t_stack *target);
+void	a_to_b(t_stack **src, t_stack **dst);
+
 // operations_b.c
-t_stack	*find_target(t_stack **dst, t_stack *node);
-t_stack	*find_node(t_stack **src, t_stack **dst);
-int	executor(t_stack **src, t_stack **dst, t_stack *node, t_stack *target);
-void	src_to_dst(t_stack **src, t_stack **dst);
+t_stack	*find_target_a(t_stack **dst, t_stack *node);
+t_stack	*find_node_a(t_stack **src, t_stack **dst);
+int	execute_b(t_stack **src, t_stack **dst, t_stack *node, t_stack *target);
+void	b_to_a(t_stack **src, t_stack **dst);
+
 
 // stack operations
 int	stack_size(t_stack **st);
