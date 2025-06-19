@@ -89,12 +89,12 @@ void	a_to_b(t_stack **src, t_stack **dst)
 
 	while(stack_size(src) > 3 && !ascending_check(src))
 	{
-		node = find_node_b(src, dst);
+		node = find_node_a(src, dst);
 		target = find_target_b(dst, node);
 		if (node->info.moves == node->info.rotate
 				|| node->info.moves == target->info.rotate)
 			ra_rb_rr(src, dst, node, target);
-		else if (node->info.moves == target->info.reverse 
+		else if (node->info.moves == node->info.reverse 
 				|| node->info.moves == target->info.reverse)
 			rra_rrb_rrr(src, dst, node, target);
 		else

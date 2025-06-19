@@ -19,9 +19,6 @@ void	move_push(t_stack **src, t_stack **dst)
 
 	tmp = (*src);
 	(*src) = (*src)->next;
-	// if ((*dst) == NULL)
-	// 	tmp->next = NULL; 
-	// else
 	tmp->next = (*dst);
 	(*dst) = tmp;
 }

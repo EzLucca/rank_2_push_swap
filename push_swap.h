@@ -106,4 +106,8 @@ void	error_found(void);
 void	free_exit(t_stack **st_a, t_stack **st_b);
 int		max_return(int a, int b);
 
+
+// delete
+void	print_stack(t_stack *st);
+
 #endif // !PUSH_SWAP_H
