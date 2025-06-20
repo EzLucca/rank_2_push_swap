@@ -19,9 +19,9 @@ t_stack	*find_target_a(t_stack **dst, t_stack *node)
 
 	tmp = *dst;
 	target = NULL;
-	if (node->nbr > tmp->nbr && node->nbr < stack_last(&tmp)->nbr)
+	if (node->nbr < tmp->nbr && node->nbr > stack_last(&tmp)->nbr)
 		return (tmp);
-	if (node->nbr < stack_max(dst) || node->nbr > stack_min(dst))
+	if (node->nbr > stack_max(dst) || node->nbr < stack_min(dst))
 	{
 		while (tmp->nbr != stack_min(dst))
 			tmp = tmp->next;
@@ -41,10 +41,10 @@ int	execute_b(t_stack **src, t_stack **dst, t_stack *node, t_stack *target)
 	int	moves;
 	int	rev_moves;
 
-	node->info.rotate = stack_position(src, node->nbr);
-	target->info.rotate = stack_position(dst, target->nbr);
-	node->info.reverse = stack_size(src) - stack_position(src, node->nbr);
-	target->info.reverse = stack_size(dst) - stack_position(dst, target->nbr);
+	node->info.rotate = stack_position(dst, node->nbr);
+	target->info.rotate = stack_position(src, target->nbr);
+	node->info.reverse = stack_size(dst) - stack_position(dst, node->nbr);
+	target->info.reverse = stack_size(src) - stack_position(src, target->nbr);
 	moves = max_return(node->info.rotate, target->info.rotate);
 	rev_moves = max_return(node->info.reverse, target->info.reverse);
 	if (moves > node->info.rotate + target->info.reverse)
@@ -69,7 +69,7 @@ t_stack	*find_node_b(t_stack **src, t_stack **dst)
 	moves = INT_MAX;
 	while (tmp)
 	{
-		target = find_target_a(dst, tmp);
+		target = find_target_a(src, tmp);
 		min = execute_b(src, dst, tmp, target);
 		if (moves > min)
 		{
@@ -94,7 +94,7 @@ void	b_to_a(t_stack **src, t_stack **dst)
 		if (node->info.moves == node->info.rotate
 				|| node->info.moves == target->info.rotate)
 			ra_rb_rr(src, dst, node, target);
-		else if (node->info.moves == target->info.reverse 
+		else if (node->info.moves == node->info.reverse 
 				|| node->info.moves == target->info.reverse)
 			rra_rrb_rrr(src, dst, node, target);
 		else
@@ -102,6 +102,6 @@ void	b_to_a(t_stack **src, t_stack **dst)
 			ra_rra(src, node);
 			rb_rrb(dst, target);
 		}
-		push_b(src, dst);
+		push_a(src, dst);
 	}
 }

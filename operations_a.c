@@ -70,7 +70,7 @@ t_stack	*find_node_a(t_stack **src, t_stack **dst)
 	while (tmp)
 	{
 		target = find_target_b(dst, tmp);
-		min = execute_b(src, dst, tmp, target);
+		min = execute_a(src, dst, tmp, target);
 		if (moves > min)
 		{
 			tmp->info.moves = min;

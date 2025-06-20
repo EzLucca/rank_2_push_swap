@@ -12,26 +12,26 @@
 
 #include "push_swap.h"
 
-char	**check_args(int ac, char **av)
+char	**check_args(int argc, char **argv)
 {
 	char **args;
 	int		i;
 
 	args = NULL;
 	i = 0;
-	if (ac == 2)
+	if (argc == 2)
 	{
-		args = ft_split(av[1], ' ');
+		args = ft_split(argv[1], ' ');
 		if (!args)
 			error_found();
 	}
 	else
-		args = av + 1;
+		args = argv + 1;
 	while (args[i])
 	{
 		if (syntax_check(args[i]) || !int_check(args[i]))
 		{
-			if (ac == 2)
+			if (argc == 2)
 				free_arrays(args);
 			error_found();
 		}
@@ -62,20 +62,20 @@ void	stack_append(t_stack **st_a, int nbr)
 	}
 }
 
-void	create_stack (int ac, char **av, t_stack **st_a)
+void	create_stack (int argc, char **argv, t_stack **st_a)
 {
 	char	**args;
 	int		nbr;
 	int		i;
 
 	i = 0;
-	args = check_args(ac, av);
+	args = check_args(argc, argv);
 	while (args[i])
 	{
 		nbr = ft_atoi(args[i]);
 		stack_append(st_a, nbr);
 		i++;
 	}
-	if (ac == 2)
+	if (argc == 2)
 		free_arrays(args);
 }

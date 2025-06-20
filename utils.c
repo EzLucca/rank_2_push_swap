@@ -69,7 +69,7 @@ void	print_stack(t_stack *st)
 	t_stack	*tmp;
 
 	tmp = st;
-	while(tmp->next)
+	while(tmp != NULL)
 	{
 		ft_printf("%d\n", tmp->nbr);
 		tmp = tmp->next;

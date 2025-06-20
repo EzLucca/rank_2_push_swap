@@ -55,17 +55,16 @@ void	ra_rb_rr(t_stack **st_a, t_stack **st_b, t_stack *node, t_stack *target);
 void	rra_rrb_rrr(t_stack **st_a, t_stack **st_b, t_stack *node, t_stack *target);
 
 //operations_a
+void	a_to_b(t_stack **src, t_stack **dst);
 t_stack	*find_target_b(t_stack **dst, t_stack *node);
 t_stack	*find_node_b(t_stack **src, t_stack **dst);
 int	execute_a(t_stack **src, t_stack **dst, t_stack *node, t_stack *target);
-void	a_to_b(t_stack **src, t_stack **dst);
 
 // operations_b.c
+void	b_to_a(t_stack **src, t_stack **dst);
 t_stack	*find_target_a(t_stack **dst, t_stack *node);
 t_stack	*find_node_a(t_stack **src, t_stack **dst);
-int	execute_b(t_stack **src, t_stack **dst, t_stack *node, t_stack *target);
-void	b_to_a(t_stack **src, t_stack **dst);
-
+int		execute_b(t_stack **src, t_stack **dst, t_stack *node, t_stack *target);
 
 // stack operations
 int	stack_size(t_stack **st);
@@ -100,11 +99,11 @@ void	reverse_rotate_b(t_stack **st);
 void	reverse_rotate_r(t_stack **st_a, t_stack **st_b);
 
 // utils
+int		max_return(int a, int b);
 void	free_stack(t_stack **st);
 void	free_arrays(char **av);
 void	error_found(void);
 void	free_exit(t_stack **st_a, t_stack **st_b);
-int		max_return(int a, int b);
 
 
 // delete

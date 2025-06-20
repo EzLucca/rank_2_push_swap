@@ -19,21 +19,11 @@ void	sort_big(t_stack **st_a, t_stack **st_b)
 	i = 2;
 	while (stack_size(st_a) > 3 && i--)
 		push_b(st_a, st_b);
-	ft_printf("stack b\n");
-	print_stack(*st_b);
 	if (stack_size(st_a) > 3)
 		a_to_b(st_a, st_b);
 	if (!ascending_check(st_a))
 		sort_three(st_a);
-	ft_printf("before b to a stack a\n");
-	print_stack(*st_a);
-	ft_printf("before b to a stack b\n");
-	print_stack(*st_b);
-	// b_to_a(st_b, st_a);
-	ft_printf("after b to a stack a\n");
-	print_stack(*st_a);
-	// ft_printf("after b to a stack b\n");
-	// print_stack(*st_b);
+	b_to_a(st_a, st_b);
 	if (!ascending_check(st_a))
 	{
 		i = stack_position(st_a, stack_min(st_a));

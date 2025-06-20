@@ -17,10 +17,10 @@ void	move_push(t_stack **src, t_stack **dst)
 {
 	t_stack	*tmp;
 
-	tmp = (*src);
-	(*src) = (*src)->next;
-	tmp->next = (*dst);
-	(*dst) = tmp;
+	tmp = *src;
+	*src = (*src)->next;
+	tmp->next = *dst;
+	*dst = tmp;
 }
 
 // - push_a
