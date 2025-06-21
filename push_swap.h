@@ -107,6 +107,6 @@ void	free_exit(t_stack **st_a, t_stack **st_b);
 
 
 // delete
-void	print_stack(t_stack *st);
+void print_stack(t_stack *stack, char *name);
 
 #endif // !PUSH_SWAP_H

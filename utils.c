@@ -64,14 +64,14 @@ int	max_return(int a, int b)
 		return (b);
 }
 
-void	print_stack(t_stack *st)
+void print_stack(t_stack *stack, char *name)
 {
-	t_stack	*tmp;
-
-	tmp = st;
-	while(tmp != NULL)
-	{
-		ft_printf("%d\n", tmp->nbr);
-		tmp = tmp->next;
-	}
+    ft_printf("Stack %s: ", name);
+    while (stack)
+    {
+        ft_printf("%d ", stack->nbr);
+        stack = stack->next;
+    }
+    ft_printf("\n");
 }
+

@@ -42,7 +42,7 @@ void	swap_b(t_stack **st)
 // move_ss
 void	swap_s(t_stack **st_a, t_stack **st_b)
 {
-	if (!(*st_a) || !(*st_b) || (*st_a)->next || (*st_b)->next)
+	if (!(*st_a) || !(*st_b) || !(*st_a)->next || !(*st_b)->next)
 		return ;
 	move_swap(st_a);
 	move_swap(st_b);

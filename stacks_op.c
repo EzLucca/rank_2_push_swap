@@ -37,12 +37,12 @@ int	stack_size(t_stack **st)
 	return (i);
 }
 
-int	stack_max(t_stack **stack)
+int	stack_max(t_stack **st)
 {
 	int	max;
 	t_stack	*tmp;
 
-	tmp = *stack;
+	tmp = *st;
 	max = tmp->nbr;
 	while (tmp)
 	{
@@ -53,12 +53,12 @@ int	stack_max(t_stack **stack)
 	return (max);
 }
 
-int	stack_min(t_stack **stack)
+int	stack_min(t_stack **st)
 {
 	int	min;
 	t_stack	*tmp;
 
-	tmp = *stack;
+	tmp = *st;
 	min = tmp->nbr;
 	while (tmp)
 	{
@@ -69,13 +69,13 @@ int	stack_min(t_stack **stack)
 	return (min);
 }
 
-int	stack_position(t_stack **stack, int nbr)
+int	stack_position(t_stack **st, int nbr)
 {
 	int		i;
 	t_stack	*tmp;
 
 	i = 0;
-	tmp = *stack;
+	tmp = *st;
 	while(tmp && tmp->nbr != nbr)
 	{
 		tmp = tmp->next;

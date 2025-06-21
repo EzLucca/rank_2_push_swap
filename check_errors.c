@@ -46,7 +46,7 @@ bool	duplicates_check(t_stack *st_a)
 
 bool	syntax_check(char *str)
 {
-	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
+	while ((*str == ' ') || (*str >= '\t' && *str <= '\r'))
 		str++;
 	if (*str == '-' || *str == '+')
 		str++;
@@ -84,7 +84,7 @@ bool	int_check(char *str)
 
 	sign = 1;
 	nbr = 0;
-	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
+	while ((*str == ' ') || (*str >= '\t' && *str <= '\r'))
 		str++;
 	if (*str == '-' || *str == '+')
 	{

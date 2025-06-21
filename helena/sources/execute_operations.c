@@ -12,23 +12,23 @@
 
 #include "../includes/push_swap.h"
 
-void	rr_ra_rb(t_stack **a, t_stack **b, t_stack *node_a, t_stack *node_b)
+void	rr_ra_rb(t_stack **a, t_stack **b, t_stack *node, t_stack *target)
 {
-	while (*a != node_a && *b != node_b)
+	while (*a != node && *b != target)
 		rr(a, b);
-	while (*a != node_a)
+	while (*a != node)
 		ra(a);
-	while (*b != node_b)
+	while (*b != target)
 		rb(b);
 }
 
-void	rrr_rra_rrb(t_stack **a, t_stack **b, t_stack *node_a, t_stack *node_b)
+void	rrr_rra_rrb(t_stack **a, t_stack **b, t_stack *node, t_stack *target)
 {
-	while (*a != node_a && *b != node_b)
+	while (*a != node && *b != target)
 		rrr(a, b);
-	while (*a != node_a)
+	while (*a != node)
 		rra(a);
-	while (*b != node_b)
+	while (*b != target)
 		rrb(b);
 }
 

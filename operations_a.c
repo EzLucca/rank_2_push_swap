@@ -21,7 +21,7 @@ t_stack	*find_target_b(t_stack **dst, t_stack *node)
 	target = NULL;
 	if (node->nbr > tmp->nbr && node->nbr < stack_last(&tmp)->nbr)
 		return (tmp);
-	if (node->nbr > stack_max(dst) || node->nbr < stack_min(dst))
+	else if (node->nbr > stack_max(dst) || node->nbr < stack_min(dst))
 	{
 		while (tmp->nbr != stack_max(dst))
 			tmp = tmp->next;
@@ -47,7 +47,7 @@ int	execute_a(t_stack **src, t_stack **dst, t_stack *node, t_stack *target)
 	target->info.reverse = stack_size(dst) - stack_position(dst, target->nbr);
 	moves = max_return(node->info.rotate, target->info.rotate);
 	rev_moves = max_return(node->info.reverse, target->info.reverse);
-	if (moves > node->info.rotate + target->info.reverse)
+	if (moves > node->info.rotate + target->info.reverse) // Check for optimizations
 		moves = node->info.rotate + target->info.reverse;
 	if (moves > node->info.reverse + target->info.rotate)
 		moves = node->info.reverse + target->info.rotate;

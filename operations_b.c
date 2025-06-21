@@ -12,18 +12,18 @@
 
 #include "push_swap.h"
 
-t_stack	*find_target_a(t_stack **dst, t_stack *node)
+t_stack	*find_target_a(t_stack **src, t_stack *node)
 {
 	t_stack	*target;
 	t_stack	*tmp;
 
-	tmp = *dst;
+	tmp = *src;
 	target = NULL;
 	if (node->nbr < tmp->nbr && node->nbr > stack_last(&tmp)->nbr)
 		return (tmp);
-	if (node->nbr > stack_max(dst) || node->nbr < stack_min(dst))
+	if (node->nbr > stack_max(src) || node->nbr < stack_min(src))
 	{
-		while (tmp->nbr != stack_min(dst))
+		while (tmp->nbr != stack_min(src))
 			tmp = tmp->next;
 		target = tmp;
 	}
@@ -36,15 +36,15 @@ t_stack	*find_target_a(t_stack **dst, t_stack *node)
 	return (target);
 }
 
-int	execute_b(t_stack **src, t_stack **dst, t_stack *node, t_stack *target)
+int	execute_b(t_stack **dst, t_stack **src, t_stack *node, t_stack *target)
 {
 	int	moves;
 	int	rev_moves;
 
-	node->info.rotate = stack_position(dst, node->nbr);
-	target->info.rotate = stack_position(src, target->nbr);
-	node->info.reverse = stack_size(dst) - stack_position(dst, node->nbr);
-	target->info.reverse = stack_size(src) - stack_position(src, target->nbr);
+	node->info.rotate = stack_position(src, node->nbr);
+	target->info.rotate = stack_position(dst, target->nbr);
+	node->info.reverse = stack_size(src) - stack_position(src, node->nbr);
+	target->info.reverse = stack_size(dst) - stack_position(dst, target->nbr);
 	moves = max_return(node->info.rotate, target->info.rotate);
 	rev_moves = max_return(node->info.reverse, target->info.reverse);
 	if (moves > node->info.rotate + target->info.reverse)
@@ -56,7 +56,7 @@ int	execute_b(t_stack **src, t_stack **dst, t_stack *node, t_stack *target)
 	return (moves);
 }
 
-t_stack	*find_node_b(t_stack **src, t_stack **dst)
+t_stack	*find_node_b(t_stack **dst, t_stack **src)
 {
 	t_stack *node;
 	t_stack	*target;
@@ -69,8 +69,8 @@ t_stack	*find_node_b(t_stack **src, t_stack **dst)
 	moves = INT_MAX;
 	while (tmp)
 	{
-		target = find_target_a(src, tmp);
-		min = execute_b(src, dst, tmp, target);
+		target = find_target_a(dst, tmp);
+		min = execute_b(dst, src, tmp, target);
 		if (moves > min)
 		{
 			tmp->info.moves = min;
@@ -82,25 +82,25 @@ t_stack	*find_node_b(t_stack **src, t_stack **dst)
 	return (node);
 }
 
-void	b_to_a(t_stack **src, t_stack **dst)
+void	b_to_a(t_stack **dst, t_stack **src)
 {
 	t_stack	*node;
 	t_stack	*target;
 
 	while(*src)
 	{
-		node = find_node_a(src, dst);
+		node = find_node_b(dst, src);
 		target = find_target_a(dst, node);
 		if (node->info.moves == node->info.rotate
 				|| node->info.moves == target->info.rotate)
-			ra_rb_rr(src, dst, node, target);
+			ra_rb_rr(dst, src, target, node);
 		else if (node->info.moves == node->info.reverse 
 				|| node->info.moves == target->info.reverse)
-			rra_rrb_rrr(src, dst, node, target);
+			rra_rrb_rrr(dst, src, target, node);
 		else
 		{
-			ra_rra(src, node);
-			rb_rrb(dst, target);
+			ra_rra(dst, target);
+			rb_rrb(src, node);
 		}
 		push_a(src, dst);
 	}

@@ -21,8 +21,8 @@ void	move_rotate(t_stack **src)
 	first = *src;
 	last = stack_last(src);
 	*src = first->next;
+	first->next = NULL;
 	last->next = first;
-	last->next = NULL;
 }
 
 // - rotate_a
