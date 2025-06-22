@@ -1,13 +1,13 @@
 
 NAME = push_swap
 
-DIR_LIB = ./library/libft
+DIR_LIBFT = ./lib/libft
 DIR_SRC = .
 DIR_OBJ = $(DIR_SRC)/objects
 
 COMPILER = cc
 CFLAGS = -Wall -Wextra -Werror -g
-LIBFT_FLAGS = -L $(DIR_LIB) -lft
+LIBFT_FLAGS = -L $(DIR_LIBFT) -lft
 
 SOURCES = check_data.c \
 		  check_errors.c \
@@ -27,16 +27,16 @@ SRC = $(addprefix $(DIR_SRC)/, $(SOURCES))
 
 OBJECTS = $(SRC:$(DIR_SRC)/%.c=$(DIR_OBJ)/%.o)
 
-HEADERS = -I ./includes -I $(DIR_LIB)
+HEADERS = -I ./includes -I $(DIR_LIBFT)
 
-LIBFT = $(DIR_LIB)/libft.a
+LIBFT = $(DIR_LIBFT)/libft.a
 
 RM = rm -rf
 
 all: $(LIBFT) $(NAME)
 
 $(LIBFT):
-	@make -C $(DIR_LIB)
+	@make -C $(DIR_LIBFT)
 
 $(NAME): $(OBJECTS)
 	@$(COMPILER) $(CFLAGS) $(OBJECTS) -o $@  $(LIBFT_FLAGS)
@@ -52,12 +52,12 @@ $(DIR_OBJ):
 
 clean:
 	@$(RM) $(DIR_OBJ)
-	@make clean -C $(DIR_LIB)
+	@make clean -C $(DIR_LIBFT)
 	@echo "Objects of $(NAME) are removed!"
 
 fclean: clean
 	@$(RM) $(NAME)
-	@make fclean -C $(DIR_LIB)
+	@make fclean -C $(DIR_LIBFT)
 	@echo "Executable $(NAME) is removed!"
 
 re: fclean all

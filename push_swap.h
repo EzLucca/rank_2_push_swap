@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 // Libraries
-# include "library/libft/libft.h"
+# include "lib/libft/include/libft.h"
 # include <stdbool.h>
 # include <limits.h>
 
