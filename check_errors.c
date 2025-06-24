@@ -6,11 +6,11 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 11:17:43 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/18 13:21:48 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/24 18:11:42 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "include/push_swap.h"
 
 bool	ascending_check(t_stack **st_a)
 {

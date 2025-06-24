@@ -6,7 +6,7 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 09:19:38 by edlucca           #+#    #+#             */
-/*   Updated: 2025/04/25 14:04:47 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/24 17:51:50 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *src);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
+void	ft_free_array(char **array);
 void	*ft_memset(void *b, int c, size_t len);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);

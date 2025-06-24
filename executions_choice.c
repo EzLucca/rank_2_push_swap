@@ -6,11 +6,11 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:08:50 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/18 21:16:14 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/24 18:11:50 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "include/push_swap.h"
 
 void	ra_rb_rr(t_stack **a, t_stack **b, t_stack *node, t_stack *target)
 {

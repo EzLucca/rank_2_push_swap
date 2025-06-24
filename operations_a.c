@@ -6,11 +6,11 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:08:59 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/19 16:39:58 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/24 18:13:00 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "include/push_swap.h"
 
 t_stack	*find_target_b(t_stack **dst, t_stack *node)
 {

@@ -6,11 +6,11 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 11:10:48 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/17 15:20:39 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/24 18:12:08 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "include/push_swap.h"
 // Functions to create
 //  - push_a
 void	move_push(t_stack **src, t_stack **dst)
