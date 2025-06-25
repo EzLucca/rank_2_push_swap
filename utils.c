@@ -6,11 +6,11 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 20:58:41 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/24 18:13:42 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/18 21:55:01 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/push_swap.h"
+#include "push_swap.h"
 
 void	free_stack(t_stack **st)
 {
@@ -23,6 +23,23 @@ void	free_stack(t_stack **st)
 		tmp = (*st)->next;
 		free(*st);
 		*st = tmp;
+	}
+}
+
+void	free_arrays(char **av)
+{
+	int	i;
+
+	i = 0;
+	if (av)
+	{
+		while(av[i])
+		{
+			free(av[i]);
+			av[i] = NULL;
+			i++;
+		}
+		free(av);
 	}
 }
 

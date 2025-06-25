@@ -6,11 +6,11 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 11:58:20 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/24 18:25:05 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/19 11:58:21 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/push_swap.h"
+#include "push_swap.h"
 #include <stdio.h>
 
 int main(int ac, char **av)

@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_array.c                                    :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 17:51:08 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/24 17:51:17 by edlucca          ###   ########.fr       */
+/*   Created: 2025/04/15 10:27:46 by edlucca           #+#    #+#             */
+/*   Updated: 2025/04/23 19:05:54 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_free_array(char **array)
+// Applies the function ’f’ to each character of the string passed as argument,
+// passing its index as the first argument. Each character is passed by
+// address to ’f’ so it can be modified if necessary.
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	if (array)
+	if (!s || !f)
+		return ;
+	while (s[i])
 	{
-		while(array[i])
-		{
-			free(array[i]);
-			array[i] = NULL;
-			i++;
-		}
-		free(array);
+		f(i, &s[i]);
+		i++;
 	}
 }

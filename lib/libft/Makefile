@@ -58,8 +58,7 @@ LIBFT_FILES = 	ft_isalpha.c \
 				ft_lstdelone_bonus.c \
 				ft_lstclear_bonus.c \
 				ft_lstiter_bonus.c \
-				ft_lstmap_bonus.c \
-				ft_free_array.c
+				ft_lstmap_bonus.c
 
 GNL_FILES = $(GNL_DIR)/get_next_line.c \
 			$(GNL_DIR)/get_next_line_utils.c
@@ -78,31 +77,31 @@ all: $(NAME)
 
 $(NAME): $(LIBFT_OBJECTS) $(FT_PRINTF_OBJECTS) $(GNL_OBJECTS)
 	@$(AR) $@ $^
-	@echo "$(NAME) was created"
+	@echo "✅ Build $(GREEN)$(NAME) $(NC)successfully! 🎉"
 
 $(DIR_OBJ)/%.o: %.c | $(DIR_OBJ)
 	@$(COMPILER) $(CFLAGS) -I $(HEADERS) -c $< -o $@
-	@echo "compiling $<"
+	@echo "... 🛠️ compiling $<"
 
 $(DIR_OBJ)/%.o: $(GNL_DIR)/%.c | $(DIR_OBJ)
 	@$(COMPILER) $(CFLAGS) -I $(HEADERS) -c $< -o $@
-	@echo "Compiling $<"
+	@echo "... 🛠️ compiling $<"
 
 $(DIR_OBJ)/%.o: $(FT_PRINTF_DIR)/%.c | $(DIR_OBJ)
 	@$(COMPILER) $(CFLAGS) -I $(HEADERS) -c $< -o $@
-	@echo "Compiling $<"
+	@echo "... 🛠️ compiling $<"
 
 $(DIR_OBJ):
-	mkdir -p $(DIR_OBJ)
-	@echo "Making directory for $(NAME) objects"
+	@mkdir -p $(DIR_OBJ)
+	@echo "📁 Creating directory for $(NAME) objects"
 
 clean:
 	@$(RM) $(DIR_OBJ)
-	@echo "Objects of $(NAME) are removed!"
+	@echo "🧹 Objects of $(NAME) are removed! -> 🗑️"
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "Executable $(NAME) is removed!"
+	@echo "🧹 Executable $(NAME) is removed! -> 🗑️ "
 
 re: fclean all
 

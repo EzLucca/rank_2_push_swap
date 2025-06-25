@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 11:06:38 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/24 18:22:38 by edlucca          ###   ########.fr       */
+/*   Created: 2025/06/25 10:15:14 by edlucca           #+#    #+#             */
+/*   Updated: 2025/06/25 11:05:49 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/checker_bonus.h"
 
-static void	read_av(int ac, char **av, t_stack *st_a, t_stack *st_b)
+static void	read_av(int ac, char **av, t_st *st_a, t_st *st_b)
 {
 	char **array;
 
@@ -33,7 +33,7 @@ static void	read_av(int ac, char **av, t_stack *st_a, t_stack *st_b)
 	}
 }
 
-static void	operations(t_stack *st_a, t_stack *st_b, char *str)
+static void	operations(t_st *st_a, t_st *st_b, char *str)
 {
 	if (!ft_strncmp(str, "sa\n",3))
 		swap_a(&st_a);
@@ -66,10 +66,11 @@ static void	operations(t_stack *st_a, t_stack *st_b, char *str)
 
 int	main(int ac, char **av)
 {
-	t_stack *st_a;
-	t_stack *st_b;
+	t_st *st_a;
+	t_st *st_b;
 	char	*next_line;
 
+	st_b = NULL;
 	create_stack(ac, av, &st_a);
 	if(ac == 1)
 		return (0);

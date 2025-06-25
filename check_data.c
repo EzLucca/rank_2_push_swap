@@ -6,11 +6,11 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 11:16:00 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/24 18:11:28 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/18 13:53:43 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/push_swap.h"
+#include "push_swap.h"
 
 char	**check_args(int argc, char **argv)
 {
@@ -32,7 +32,7 @@ char	**check_args(int argc, char **argv)
 		if (syntax_check(args[i]) || !int_check(args[i]))
 		{
 			if (argc == 2)
-				ft_free_array(args);
+				free_arrays(args);
 			error_found();
 		}
 		i++;
@@ -77,5 +77,5 @@ void	create_stack (int argc, char **argv, t_stack **st_a)
 		i++;
 	}
 	if (argc == 2)
-		ft_free_array(args);
+		free_arrays(args);
 }

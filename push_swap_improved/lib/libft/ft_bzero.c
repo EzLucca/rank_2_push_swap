@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_bonus.h                                    :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 11:07:37 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/24 11:08:55 by edlucca          ###   ########.fr       */
+/*   Created: 2025/04/15 10:18:31 by edlucca           #+#    #+#             */
+/*   Updated: 2025/04/23 19:00:33 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_BONUS_H
-# define CHECKER_BONUS_H
+#include "libft.h"
 
-# include "push_swap.h"
+//Erase n bytes data from pointer s writing 0 instead starting from s
 
-#endif // !CHECKER_BONUS_H
+void	ft_bzero(void *s, size_t n)
+{
+	char	*temp_ptr;
+
+	temp_ptr = (char *) s;
+	while (n > 0)
+	{
+		*(temp_ptr++) = 0;
+		n--;
+	}
+}

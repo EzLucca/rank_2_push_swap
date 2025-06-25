@@ -6,24 +6,28 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:08:59 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/24 18:13:00 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/23 18:42:25 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/push_swap.h"
+#include "push_swap.h"
 
 t_stack	*find_target_b(t_stack **dst, t_stack *node)
 {
 	t_stack	*target;
 	t_stack	*tmp;
+	int		min;
+	int		max;
 
 	tmp = *dst;
 	target = NULL;
+	min = stack_min(dst);
+	max = stack_max(dst);
 	if (node->nbr > tmp->nbr && node->nbr < stack_last(&tmp)->nbr)
 		return (tmp);
-	else if (node->nbr > stack_max(dst) || node->nbr < stack_min(dst))
+	else if (node->nbr > max || node->nbr < min)
 	{
-		while (tmp->nbr != stack_max(dst))
+		while (tmp->nbr != max)
 			tmp = tmp->next;
 		target = tmp;
 	}
@@ -93,12 +97,16 @@ void	a_to_b(t_stack **src, t_stack **dst)
 		target = find_target_b(dst, node);
 		if (node->info.moves == node->info.rotate
 				|| node->info.moves == target->info.rotate)
+		{
+			ft_printf("option 4\n");
 			ra_rb_rr(src, dst, node, target);
+		}
 		else if (node->info.moves == node->info.reverse 
 				|| node->info.moves == target->info.reverse)
 			rra_rrb_rrr(src, dst, node, target);
 		else
 		{
+			ft_printf("option 3\n");
 			ra_rra(src, node);
 			rb_rrb(dst, target);
 		}

@@ -6,11 +6,11 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 13:40:26 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/24 18:13:24 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/19 16:23:30 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/push_swap.h"
+#include "push_swap.h"
 
 void	sort_big(t_stack **st_a, t_stack **st_b)
 {

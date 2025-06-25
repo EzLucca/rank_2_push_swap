@@ -6,7 +6,7 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 11:17:03 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/19 15:49:21 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/23 09:50:33 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,15 @@
 # define PUSH_SWAP_H
 
 // Libraries
-# include "../lib/libft/include/libft.h"
+# include "lib/libft/include/libft.h"
 # include <stdbool.h>
 # include <limits.h>
+
+typedef enum e_move
+{
+	A_TO_B,
+	B_TO_A,
+} t_move;
 
 typedef struct s_info
 {
