@@ -58,7 +58,8 @@ LIBFT_FILES = 	ft_isalpha.c \
 				ft_lstdelone_bonus.c \
 				ft_lstclear_bonus.c \
 				ft_lstiter_bonus.c \
-				ft_lstmap_bonus.c
+				ft_lstmap_bonus.c \
+				ft_free_array.c
 
 GNL_FILES = $(GNL_DIR)/get_next_line.c \
 			$(GNL_DIR)/get_next_line_utils.c
