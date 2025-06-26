@@ -46,14 +46,3 @@ int	max_return(int a, int b)
 	else
 		return (b);
 }
-
-void print_stack(t_stack *stack, char *name)
-{
-	ft_printf("Stack %s: ", name);
-	while (stack)
-	{
-		ft_printf("%d ", stack->nbr);
-		stack = stack->next;
-	}
-	ft_printf("\n");
-}

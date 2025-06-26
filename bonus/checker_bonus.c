@@ -12,9 +12,15 @@
 
 #include "../include/checker_bonus.h"
 
+static void	free_all(t_stack **st_a, t_stack **st_b, char *str)
+{
+	free(str);
+	free_exit(st_a, st_b);
+}
+
 static void	operations(t_stack **st_a, t_stack **st_b, char *str)
 {
-	if (!ft_strncmp(str, "sa\n",3))
+	if (!ft_strncmp(str, "sa\n", 3))
 		swap_a(st_a);
 	else if (!ft_strncmp(str, "sb\n", 3))
 		swap_b(st_b);
@@ -37,19 +43,16 @@ static void	operations(t_stack **st_a, t_stack **st_b, char *str)
 	else if (!ft_strncmp(str, "rrr\n", 4))
 		reverse_rotate_r(st_a, st_b);
 	else
-	{
-		free(str);
-		free_exit(st_a, st_b);
-	}
+		free_all(st_a, st_b, str);
 }
 
 int	main(int ac, char **av)
 {
-	t_stack *st_a;
-	t_stack *st_b;
+	t_stack	*st_a;
+	t_stack	*st_b;
 	char	*instructions;
 
-	if(ac == 1)
+	if (ac == 1)
 		return (0);
 	st_a = NULL;
 	st_b = NULL;
@@ -63,7 +66,7 @@ int	main(int ac, char **av)
 		free(instructions);
 		instructions = get_next_line(STDIN_FILENO);
 	}
-	if (ascending_check(&st_a)) 
+	if (ascending_check(&st_a))
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");

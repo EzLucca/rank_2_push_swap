@@ -62,7 +62,7 @@ int	execute_a(t_stack **src, t_stack **dst, t_stack *node, t_stack *target)
 
 t_stack	*find_node_a(t_stack **src, t_stack **dst)
 {
-	t_stack *node;
+	t_stack	*node;
 	t_stack	*target;
 	t_stack	*tmp;
 	int		min;
@@ -91,15 +91,15 @@ void	a_to_b(t_stack **src, t_stack **dst)
 	t_stack	*node;
 	t_stack	*target;
 
-	while(stack_size(src) > 3 && !ascending_check(src))
+	while (stack_size(src) > 3 && !ascending_check(src))
 	{
 		node = find_node_a(src, dst);
 		target = find_target_b(dst, node);
 		if (node->moves == node->rotate
-				|| node->moves == target->rotate)
+			|| node->moves == target->rotate)
 			ra_rb_rr(src, dst, node, target);
-		else if (node->moves == node->reverse 
-				|| node->moves == target->reverse)
+		else if (node->moves == node->reverse
+			|| node->moves == target->reverse)
 			rra_rrb_rrr(src, dst, node, target);
 		else
 		{
