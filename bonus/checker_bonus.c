@@ -18,32 +18,60 @@ static void	free_all(t_stack **st_a, t_stack **st_b, char *str)
 	free_exit(st_a, st_b);
 }
 
-static void	operations(t_stack **st_a, t_stack **st_b, char *str)
+static void	read_av(int ac, char **av, t_stack **st_a, t_stack **st_b)
+{
+	char	**array;
+
+	if (ac == 2)
+	{
+		if (av[1][0] == '\0')
+		{
+			ft_putstr_fd("Error\n", 2);
+			free_exit(st_a, st_b);
+		}
+		array = ft_split(av[1], ' ');
+		if (!array)
+			free_exit(st_a, st_b);
+		create_stack(ac, av, st_a);
+		if (!st_a || duplicates_check(*st_a))
+		{
+			ft_free_array(array);
+			free_exit(st_a, st_b);
+		}
+		ft_free_array(array);
+	}
+	else
+		create_stack(ac, av, st_a);
+	if (!st_a || duplicates_check(*st_a))
+		free_exit(st_a, st_b);
+}
+
+static void	operations(t_stack *st_a, t_stack *st_b, char *str)
 {
 	if (!ft_strncmp(str, "sa\n", 3))
-		swap_a(st_a);
+		swap_a(&st_a);
 	else if (!ft_strncmp(str, "sb\n", 3))
-		swap_b(st_b);
+		swap_b(&st_b);
 	else if (!ft_strncmp(str, "pa\n", 3))
-		push_a(st_a, st_b);
+		push_a(&st_a, &st_b);
 	else if (!ft_strncmp(str, "pb\n", 3))
-		push_b(st_a, st_b);
+		push_b(&st_a, &st_b);
 	else if (!ft_strncmp(str, "ss\n", 3))
-		swap_s(st_a, st_b);
+		swap_s(&st_a, &st_b);
 	else if (!ft_strncmp(str, "ra\n", 3))
-		rotate_a(st_a);
+		rotate_a(&st_a);
 	else if (!ft_strncmp(str, "rb\n", 3))
-		rotate_b(st_b);
+		rotate_b(&st_b);
 	else if (!ft_strncmp(str, "rr\n", 3))
-		rotate_r(st_a, st_b);
+		rotate_r(&st_a, &st_b);
 	else if (!ft_strncmp(str, "rra\n", 4))
-		reverse_rotate_a(st_a);
+		reverse_rotate_a(&st_a);
 	else if (!ft_strncmp(str, "rrb\n", 4))
-		reverse_rotate_b(st_b);
+		reverse_rotate_b(&st_b);
 	else if (!ft_strncmp(str, "rrr\n", 4))
-		reverse_rotate_r(st_a, st_b);
+		reverse_rotate_r(&st_a, &st_b);
 	else
-		free_all(st_a, st_b, str);
+		free_all(&st_a, &st_b, str);
 }
 
 int	main(int ac, char **av)
@@ -56,17 +84,15 @@ int	main(int ac, char **av)
 		return (0);
 	st_a = NULL;
 	st_b = NULL;
-	create_stack(ac, av, &st_a);
-	if (!st_a)
-		free_exit(&st_a, &st_b);
+	read_av(ac, av, &st_a, &st_b);
 	instructions = get_next_line(STDIN_FILENO);
 	while (instructions)
 	{
-		operations(&st_a, &st_b, instructions);
+		operations(st_a, st_b, instructions);
 		free(instructions);
 		instructions = get_next_line(STDIN_FILENO);
 	}
-	if (ascending_check(&st_a))
+	if (ascending_check(&st_a) && st_b->next == NULL)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");

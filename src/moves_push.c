@@ -11,8 +11,7 @@
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-// Functions to create
-//  - push_a
+
 void	move_push(t_stack **src, t_stack **dst)
 {
 	t_stack	*tmp;
@@ -23,7 +22,6 @@ void	move_push(t_stack **src, t_stack **dst)
 	*dst = tmp;
 }
 
-// - push_a
 void	push_a(t_stack **src, t_stack **dst)
 {
 	if (!(*src))
@@ -32,7 +30,6 @@ void	push_a(t_stack **src, t_stack **dst)
 	ft_printf("pa\n");
 }
 
-//  - push_b
 void	push_b(t_stack **src, t_stack **dst)
 {
 	if (!(*src))

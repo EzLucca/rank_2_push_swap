@@ -27,7 +27,6 @@ void	swap_a(t_stack **st)
 	if (!(*st) || (*st)->next == NULL)
 		return ;
 	move_swap(st);
-	ft_printf("sa\n");
 }
 
 void	swap_b(t_stack **st)
@@ -35,7 +34,6 @@ void	swap_b(t_stack **st)
 	if (!(*st) || (*st)->next == NULL)
 		return ;
 	move_swap(st);
-	ft_printf("sb\n");
 }
 
 void	swap_s(t_stack **st_a, t_stack **st_b)
@@ -44,5 +42,4 @@ void	swap_s(t_stack **st_a, t_stack **st_b)
 		return ;
 	move_swap(st_a);
 	move_swap(st_b);
-	ft_printf("ss\n");
 }

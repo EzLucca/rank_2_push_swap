@@ -61,7 +61,6 @@ bool	syntax_check(char *str)
 	return (false);
 }
 
-// Check 
 bool	overflow_check(long nbr, int sign, char c)
 {
 	int	number;

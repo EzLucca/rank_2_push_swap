@@ -12,8 +12,6 @@
 
 #include "../include/push_swap.h"
 
-// Functions to create
-// - move_rotate
 void	move_rotate(t_stack **src)
 {
 	t_stack	*first;
@@ -26,7 +24,6 @@ void	move_rotate(t_stack **src)
 	last->next = first;
 }
 
-// - rotate_a
 void	rotate_a(t_stack **st)
 {
 	if (!(*st) || !(*st)->next)
@@ -35,7 +32,6 @@ void	rotate_a(t_stack **st)
 	ft_printf("ra\n");
 }
 
-// - rotate_b
 void	rotate_b(t_stack **st)
 {
 	if (!(*st) || !(*st)->next)
@@ -44,7 +40,6 @@ void	rotate_b(t_stack **st)
 	ft_printf("rb\n");
 }
 
-// - rotate_r
 void	rotate_r(t_stack **st_a, t_stack **st_b)
 {
 	if (!(*st_a) || !(*st_b) || !(*st_a)->next || !(*st_b)->next)
