@@ -6,7 +6,7 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 11:16:00 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/26 18:00:29 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/28 12:18:37 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	**check_args(int argc, char **argv)
 	return (args);
 }
 
-void	stack_append(t_stack **st_a, int nbr)
+void	stack_append(t_stack **a, int nbr)
 {
 	t_stack	*new;
 	t_stack	*last;
@@ -48,21 +48,21 @@ void	stack_append(t_stack **st_a, int nbr)
 	new = malloc(sizeof(t_stack));
 	if (!new)
 	{
-		free_stack(st_a);
+		free_stack(a);
 		error_found();
 	}
 	new->nbr = nbr;
 	new->next = NULL;
-	if (*st_a == NULL)
-		*st_a = new;
+	if (*a == NULL)
+		*a = new;
 	else
 	{
-		last = stack_last(st_a);
+		last = stack_last(a);
 		last->next = new;
 	}
 }
 
-void	create_stack(int argc, char **argv, t_stack **st_a)
+void	create_stack(int argc, char **argv, t_stack **a)
 {
 	char	**args;
 	int		nbr;
@@ -73,7 +73,7 @@ void	create_stack(int argc, char **argv, t_stack **st_a)
 	while (args[i])
 	{
 		nbr = ft_atoi(args[i]);
-		stack_append(st_a, nbr);
+		stack_append(a, nbr);
 		i++;
 	}
 	if (argc == 2)

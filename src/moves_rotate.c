@@ -6,7 +6,7 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 11:11:03 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/26 18:01:22 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/28 12:20:43 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,27 +24,27 @@ void	move_rotate(t_stack **src)
 	last->next = first;
 }
 
-void	rotate_a(t_stack **st)
+void	rotate_a(t_stack **stack)
 {
-	if (!(*st) || !(*st)->next)
+	if (!(*stack) || !(*stack)->next)
 		return ;
-	move_rotate(st);
+	move_rotate(stack);
 	ft_printf("ra\n");
 }
 
-void	rotate_b(t_stack **st)
+void	rotate_b(t_stack **stack)
 {
-	if (!(*st) || !(*st)->next)
+	if (!(*stack) || !(*stack)->next)
 		return ;
-	move_rotate(st);
+	move_rotate(stack);
 	ft_printf("rb\n");
 }
 
-void	rotate_r(t_stack **st_a, t_stack **st_b)
+void	rotate_r(t_stack **a, t_stack **b)
 {
-	if (!(*st_a) || !(*st_b) || !(*st_a)->next || !(*st_b)->next)
+	if (!(*a) || !(*b) || !(*a)->next || !(*b)->next)
 		return ;
-	move_rotate(st_a);
-	move_rotate(st_b);
+	move_rotate(a);
+	move_rotate(b);
 	ft_printf("rr\n");
 }

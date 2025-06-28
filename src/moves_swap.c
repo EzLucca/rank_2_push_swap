@@ -6,7 +6,7 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 11:10:39 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/26 18:01:13 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/28 12:21:10 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,27 @@ void	move_swap(t_stack **src)
 	(*src)->next = tmp;
 }
 
-void	swap_a(t_stack **st)
+void	swap_a(t_stack **stack)
 {
-	if (!(*st) || (*st)->next == NULL)
+	if (!(*stack) || (*stack)->next == NULL)
 		return ;
-	move_swap(st);
+	move_swap(stack);
 	ft_printf("sa\n");
 }
 
-void	swap_b(t_stack **st)
+void	swap_b(t_stack **stack)
 {
-	if (!(*st) || (*st)->next == NULL)
+	if (!(*stack) || (*stack)->next == NULL)
 		return ;
-	move_swap(st);
+	move_swap(stack);
 	ft_printf("sb\n");
 }
 
-void	swap_s(t_stack **st_a, t_stack **st_b)
+void	swap_s(t_stack **a, t_stack **b)
 {
-	if (!(*st_a) || !(*st_b) || !(*st_a)->next || !(*st_b)->next)
+	if (!(*a) || !(*b) || !(*a)->next || !(*b)->next)
 		return ;
-	move_swap(st_a);
-	move_swap(st_b);
+	move_swap(a);
+	move_swap(b);
 	ft_printf("ss\n");
 }

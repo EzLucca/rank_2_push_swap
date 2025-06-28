@@ -6,17 +6,17 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 11:17:43 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/26 18:00:36 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/28 12:19:01 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-bool	ascending_check(t_stack **st_a)
+bool	ascending_check(t_stack **a)
 {
 	t_stack	*tmp;
 
-	tmp = *st_a;
+	tmp = *a;
 	while (tmp->next)
 	{
 		if (tmp->nbr > tmp->next->nbr)
@@ -26,20 +26,20 @@ bool	ascending_check(t_stack **st_a)
 	return (true);
 }
 
-bool	duplicates_check(t_stack *st_a)
+bool	duplicates_check(t_stack *a)
 {
 	t_stack	*tmp;
 
-	while (st_a)
+	while (a)
 	{
-		tmp = st_a->next;
+		tmp = a->next;
 		while (tmp)
 		{
-			if (st_a->nbr == tmp->nbr)
+			if (a->nbr == tmp->nbr)
 				return (true);
 			tmp = tmp->next;
 		}
-		st_a = st_a->next;
+		a = a->next;
 	}
 	return (false);
 }

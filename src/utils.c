@@ -6,23 +6,23 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 20:58:41 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/26 18:02:02 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/28 12:22:33 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	free_stack(t_stack **st)
+void	free_stack(t_stack **stack)
 {
 	t_stack	*tmp;
 
-	if (!st || !*st)
+	if (!stack || !*stack)
 		return ;
-	while (*st)
+	while (*stack)
 	{
-		tmp = (*st)->next;
-		free(*st);
-		*st = tmp;
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
 	}
 }
 
@@ -32,10 +32,10 @@ void	error_found(void)
 	exit(1);
 }
 
-void	free_exit(t_stack **st_a, t_stack **st_b)
+void	free_exit(t_stack **a, t_stack **b)
 {
-	free_stack(st_a);
-	free_stack(st_b);
+	free_stack(a);
+	free_stack(b);
 	exit(0);
 }
 

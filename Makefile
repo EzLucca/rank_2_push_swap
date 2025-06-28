@@ -13,7 +13,7 @@ HEADERS = -Iinclude -I$(DIR_LIBFT_INC)
 LIBFT_FLAGS = -L$(DIR_LIBFT) -lft
 RM = rm -rf
 
-MAIN_SRC = main.c \
+MAIN_SRC = push_swap.c \
 		   moves_push.c \
 		   moves_reverse.c \
 		   moves_rotate.c \

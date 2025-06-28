@@ -6,7 +6,7 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 11:10:55 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/26 18:00:52 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/28 12:20:24 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,27 @@ void	reverse_rotate(t_stack **src)
 	*src = first;
 }
 
-void	reverse_rotate_a(t_stack **st)
+void	reverse_rotate_a(t_stack **stack)
 {
-	if (!(*st) || !(*st)->next)
+	if (!(*stack) || !(*stack)->next)
 		return ;
-	reverse_rotate(st);
+	reverse_rotate(stack);
 	ft_printf("rra\n");
 }
 
-void	reverse_rotate_b(t_stack **st)
+void	reverse_rotate_b(t_stack **stack)
 {
-	if (!(*st) || !(*st)->next)
+	if (!(*stack) || !(*stack)->next)
 		return ;
-	reverse_rotate(st);
+	reverse_rotate(stack);
 	ft_printf("rrb\n");
 }
 
-void	reverse_rotate_r(t_stack **st_a, t_stack **st_b)
+void	reverse_rotate_r(t_stack **a, t_stack **b)
 {
-	if (!(*st_a) || !(*st_b) || !(*st_a)->next || !(*st_b)->next)
+	if (!(*a) || !(*b) || !(*a)->next || !(*b)->next)
 		return ;
-	reverse_rotate(st_a);
-	reverse_rotate(st_b);
+	reverse_rotate(a);
+	reverse_rotate(b);
 	ft_printf("rrr\n");
 }

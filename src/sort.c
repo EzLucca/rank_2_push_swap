@@ -6,56 +6,56 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 13:40:26 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/26 18:01:47 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/28 12:21:42 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	sort_big(t_stack **st_a, t_stack **st_b)
+void	sort_big(t_stack **a, t_stack **b)
 {
 	int	i;
 
 	i = 2;
-	while (stack_size (st_a) > 3 && i--)
-		push_b(st_a, st_b);
-	if (stack_size (st_a) > 3)
-		a_to_b(st_a, st_b);
-	if (!ascending_check (st_a))
-		sort_three(st_a);
-	b_to_a(st_a, st_b);
-	if (!ascending_check (st_a))
+	while (stack_size (a) > 3 && i--)
+		push_b(a, b);
+	if (stack_size (a) > 3)
+		a_to_b(a, b);
+	if (!ascending_check (a))
+		sort_three(a);
+	b_to_a(a, b);
+	if (!ascending_check (a))
 	{
-		i = stack_position(st_a, stack_min(st_a));
-		if (i <= stack_size(st_a) / 2)
+		i = stack_position(a, stack_min(a));
+		if (i <= stack_size(a) / 2)
 		{
-			while ((*st_a)->nbr != stack_min(st_a))
-				rotate_a(st_a);
+			while ((*a)->nbr != stack_min(a))
+				rotate_a(a);
 		}
 		else
 		{
-			while ((*st_a)->nbr != stack_min(st_a))
-				reverse_rotate_a(st_a);
+			while ((*a)->nbr != stack_min(a))
+				reverse_rotate_a(a);
 		}
 	}
 }
 
-void	sort_three(t_stack **st_a)
+void	sort_three(t_stack **a)
 {
-	if ((*st_a)->nbr == stack_max(st_a))
-		rotate_a(st_a);
-	else if ((*st_a)->next->nbr == stack_max(st_a))
-		reverse_rotate_a(st_a);
-	if ((*st_a)->nbr > (*st_a)->next->nbr)
-		swap_a(st_a);
+	if ((*a)->nbr == stack_max(a))
+		rotate_a(a);
+	else if ((*a)->next->nbr == stack_max(a))
+		reverse_rotate_a(a);
+	if ((*a)->nbr > (*a)->next->nbr)
+		swap_a(a);
 }
 
-void	sort_stack(t_stack **st_a, t_stack **st_b)
+void	sort_stack(t_stack **a, t_stack **b)
 {
-	if (stack_size(st_a) == 2)
-		swap_a(st_a);
-	else if (stack_size(st_a) == 3)
-		sort_three(st_a);
+	if (stack_size(a) == 2)
+		swap_a(a);
+	else if (stack_size(a) == 3)
+		sort_three(a);
 	else
-		sort_big(st_a, st_b);
+		sort_big(a, b);
 }

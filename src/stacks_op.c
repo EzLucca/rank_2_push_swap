@@ -6,29 +6,29 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 11:34:43 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/26 18:01:57 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/28 12:21:59 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_stack	*stack_last(t_stack **st)
+t_stack	*stack_last(t_stack **stack)
 {
 	t_stack	*tmp;
 
-	tmp = *st;
+	tmp = *stack;
 	while (tmp->next)
 		tmp = tmp->next;
 	return (tmp);
 }
 
-int	stack_size(t_stack **st)
+int	stack_size(t_stack **stack)
 {
 	int		i;
 	t_stack	*tmp;
 
 	i = 0;
-	tmp = *st;
+	tmp = *stack;
 	while (tmp)
 	{
 		i++;
@@ -37,12 +37,12 @@ int	stack_size(t_stack **st)
 	return (i);
 }
 
-int	stack_max(t_stack **st)
+int	stack_max(t_stack **stack)
 {
 	int		max;
 	t_stack	*tmp;
 
-	tmp = *st;
+	tmp = *stack;
 	max = tmp->nbr;
 	while (tmp)
 	{
@@ -53,12 +53,12 @@ int	stack_max(t_stack **st)
 	return (max);
 }
 
-int	stack_min(t_stack **st)
+int	stack_min(t_stack **stack)
 {
 	int		min;
 	t_stack	*tmp;
 
-	tmp = *st;
+	tmp = *stack;
 	min = tmp->nbr;
 	while (tmp)
 	{
@@ -69,13 +69,13 @@ int	stack_min(t_stack **st)
 	return (min);
 }
 
-int	stack_position(t_stack **st, int nbr)
+int	stack_position(t_stack **stack, int nbr)
 {
 	int		i;
 	t_stack	*tmp;
 
 	i = 0;
-	tmp = *st;
+	tmp = *stack;
 	while (tmp && tmp->nbr != nbr)
 	{
 		tmp = tmp->next;
