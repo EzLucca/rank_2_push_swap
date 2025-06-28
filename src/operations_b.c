@@ -6,12 +6,24 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 11:05:38 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/26 18:01:37 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/28 16:30:55 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+/**
+ * @brief Finds the optimal insertion point in stack A for a node from stack B.
+ *
+ * Determines the best target position in stack A where the given node from
+ * stack B should be placed to maintain ascending order.
+ * If the node is smaller than the min or larger than the max, returns the min 
+ * node.
+ *
+ * @param src Pointer to stack A.
+ * @param node The node from stack B to be inserted.
+ * @return Pointer to the target node in stack A.
+ */
 t_stack	*find_target_a(t_stack **src, t_stack *node)
 {
 	t_stack	*target;
@@ -40,6 +52,19 @@ t_stack	*find_target_a(t_stack **src, t_stack *node)
 	return (target);
 }
 
+/**
+ * @brief Calculates the minimum number of moves required to push a node from 
+ * B to A.
+ *
+ * Computes and compares all possible combinations of rotate and reverse rotate
+ * to bring both the source node and its target position to the top.
+ *
+ * @param dst Pointer to stack A.
+ * @param src Pointer to stack B.
+ * @param node The node in stack B to be moved.
+ * @param target The target position in stack A.
+ * @return Minimum number of moves needed to perform the push.
+ */
 int	execute_b(t_stack **dst, t_stack **src, t_stack *node, t_stack *target)
 {
 	int	moves;
@@ -60,6 +85,17 @@ int	execute_b(t_stack **dst, t_stack **src, t_stack *node, t_stack *target)
 	return (moves);
 }
 
+/**
+ * @brief Finds the best node in stack B to move to stack A.
+ *
+ * Iterates over all nodes in stack B and calculates the cheapest node to move
+ * (in terms of operation count) by evaluating each node's optimal target
+ * in stack A using `find_target_a` and `execute_b`.
+ *
+ * @param dst Pointer to stack A.
+ * @param src Pointer to stack B.
+ * @return Pointer to the node in stack B that should be moved next.
+ */
 t_stack	*find_node_b(t_stack **dst, t_stack **src)
 {
 	t_stack	*node;
@@ -86,6 +122,16 @@ t_stack	*find_node_b(t_stack **dst, t_stack **src)
 	return (node);
 }
 
+/**
+ * @brief Moves all elements from stack B back to stack A in sorted order.
+ *
+ * Continuously finds the cheapest node to move from B to A, calculates its
+ * ideal target position in A, and performs the optimal combination of rotations
+ * to bring both nodes to the top before executing the push.
+ *
+ * @param dst Pointer to stack A (destination).
+ * @param src Pointer to stack B (source).
+ */
 void	b_to_a(t_stack **dst, t_stack **src)
 {
 	t_stack	*node;

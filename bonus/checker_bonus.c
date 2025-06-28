@@ -6,7 +6,7 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 10:15:14 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/28 12:40:42 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/28 16:47:59 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,30 @@
 // 	ft_printf("\n");
 // }
 
+/**
+ * @brief Frees the given string and exits freeing the stacks.
+ * 
+ * @param a Pointer to stack 'a'.
+ * @param b Pointer to stack 'b'.
+ * @param str String to be freed.
+ */
 static void	free_all(t_stack **a, t_stack **b, char *str)
 {
 	free(str);
 	free_exit(a, b);
 }
 
+/**
+ * @brief Reads command line arguments and creates stack 'a'.
+ *
+ * If a single argument contains multiple numbers separated by spaces,
+ * it splits them before creating the stack.
+ * 
+ * @param ac Argument count.
+ * @param av Argument vector (array of strings).
+ * @param a Pointer to stack 'a'.
+ * @param b Pointer to stack 'b'.
+ */
 static void	read_av(int ac, char **av, t_stack **a, t_stack **b)
 {
 	char	**array;
@@ -57,6 +75,13 @@ static void	read_av(int ac, char **av, t_stack **a, t_stack **b)
 		free_exit(a, b);
 }
 
+/**
+ * @brief Executes the stack operation based on the given instruction string.
+ * 
+ * @param a Pointer to stack 'a'.
+ * @param b Pointer to stack 'b'.
+ * @param str Instruction string to execute.
+ */
 static void	operations(t_stack **a, t_stack **b, char *str)
 {
 	if (!ft_strncmp(str, "sa\n", 3))
@@ -85,6 +110,15 @@ static void	operations(t_stack **a, t_stack **b, char *str)
 		free_all(a, b, str);
 }
 
+/**
+ * @brief Main program function that controls the flow.
+ *
+ * Reads arguments, executes operations, and verifies final stack order.
+ * 
+ * @param ac Argument count.
+ * @param av Argument vector.
+ * @return int Exit code (0 on success).
+ */
 int	main(int ac, char **av)
 {
 	t_stack	*a;

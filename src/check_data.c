@@ -6,12 +6,23 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 11:16:00 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/28 12:18:37 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/28 15:23:51 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+/**
+ * @brief Validates and prepares arguments for stack creation.
+ *
+ * Checks the given arguments for validity (e.g., digits, duplicates),
+ * and splits the input if needed (e.g., when argc == 2).
+ *
+ * @param argc Argument count from main.
+ * @param argv Argument vector from main.
+ * @return A NULL-terminated array of strings representing individual numbers.
+ *         This array must be freed by the caller (use ft_free_array).
+ */
 char	**check_args(int argc, char **argv)
 {
 	char	**args;
@@ -40,6 +51,15 @@ char	**check_args(int argc, char **argv)
 	return (args);
 }
 
+/**
+ * @brief Appends a new number to the end of stack A.
+ *
+ * Creates a new stack node with the given number and appends it
+ * to the end of the linked list pointed to by `a`.
+ *
+ * @param a Pointer to the head of stack A.
+ * @param nbr The integer value to append to the stack.
+ */
 void	stack_append(t_stack **a, int nbr)
 {
 	t_stack	*new;
@@ -62,6 +82,17 @@ void	stack_append(t_stack **a, int nbr)
 	}
 }
 
+/**
+ * @brief Creates the initial stack A from program arguments.
+ *
+ * Parses the input arguments, converts them to integers, and appends
+ * them to stack A. If the input was passed as a single string (argc == 2),
+ * it frees the temporary split array after use.
+ *
+ * @param argc The argument count from main.
+ * @param argv The argument vector from main.
+ * @param a Pointer to the stack A where numbers will be stored.
+ */
 void	create_stack(int argc, char **argv, t_stack **a)
 {
 	char	**args;

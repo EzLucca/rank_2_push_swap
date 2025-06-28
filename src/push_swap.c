@@ -6,7 +6,7 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:35:22 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/28 12:36:48 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/28 16:31:58 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,18 @@
 //     ft_printf("\n");
 // }
 
+/**
+ * @brief Entry point of the push_swap program.
+ *
+ * Initializes stacks A and B, parses and validates input, checks for duplicates,
+ * and triggers the sorting algorithm if the stack is not already sorted.
+ * If input is invalid or contains duplicates, an error message is printed
+ * and the program exits safely.
+ *
+ * @param ac Argument count.
+ * @param av Argument vector.
+ * @return 0 on success or if no sorting is needed.
+ */
 int	main(int ac, char **av)
 {
 	t_stack	*a;
