@@ -1,20 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_printf_chars.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 10:27:51 by edlucca           #+#    #+#             */
-/*   Updated: 2025/05/07 17:21:49 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/29 15:09:28 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-// -TODO: Revisar
-
-// Helper function to count len of string
 static size_t	ft_strlen(const char *s)
 {
 	int	p;
@@ -27,7 +24,7 @@ static size_t	ft_strlen(const char *s)
 
 int	ft_print_char(char c)
 {
-	int bytes;
+	int	bytes;
 
 	bytes = write(1, &c, 1);
 	if (bytes == -1)
@@ -37,7 +34,7 @@ int	ft_print_char(char c)
 
 int	ft_print_str(char *s)
 {
-	int bytes;
+	int	bytes;
 
 	bytes = 0;
 	if (!s)

@@ -6,22 +6,11 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 10:15:14 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/28 16:47:59 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/29 15:15:33 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/checker_bonus.h"
-
-// static void print_stack(t_stack *stack, char *name)
-// {
-// 	ft_printf("Stack %s: ", name);
-// 	while (stack)
-// 	{
-// 		ft_printf("%d ", stack->nbr);
-// 		stack = stack->next;
-// 	}
-// 	ft_printf("\n");
-// }
 
 /**
  * @brief Frees the given string and exits freeing the stacks.
@@ -130,21 +119,16 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	read_av(ac, av, &a, &b);
-	// print_stack(a, "A");
 	instructions = get_next_line(STDIN_FILENO);
 	while (instructions)
 	{
 		operations(&a, &b, instructions);
 		free(instructions);
-		// print_stack(a, "A");
-		// print_stack(b, "B");
 		instructions = get_next_line(STDIN_FILENO);
 	}
 	if (ascending_check(&a) && (!b || b->next == NULL))
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
-	// print_stack(a, "A");
-	// print_stack(b, "B");
 	free_exit(&a, &b);
 }

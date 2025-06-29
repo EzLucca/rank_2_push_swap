@@ -14,15 +14,15 @@
 
 int	format_specifier(const char *format, va_list *arg_ptr)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (*format == 'c')
 		count += ft_print_char(va_arg(*arg_ptr, int));
 	else if (*format == 's')
-		count += ft_print_str(va_arg(*arg_ptr, char*));
+		count += ft_print_str(va_arg(*arg_ptr, char *));
 	else if (*format == 'p')
-		count += ft_print_ptr(va_arg(*arg_ptr, void*));
+		count += ft_print_ptr(va_arg(*arg_ptr, void *));
 	else if (*format == 'd' || *format == 'i')
 		count += ft_print_snbr(va_arg(*arg_ptr, int));
 	else if (*format == 'u')
@@ -37,18 +37,18 @@ int	format_specifier(const char *format, va_list *arg_ptr)
 }
 
 // Check if the format is valid
-static int format_validation(const char *format)
+static int	format_validation(const char *format)
 {
 	if (ft_strchr(SPECIFIERS, *format) != 0)
 		return (1);
 	return (0);
 }
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-	va_list arg_ptr;
-	int	len;
-	int	total;
+	va_list	arg_ptr;
+	int		len;
+	int		total;
 
 	len = 0;
 	total = 0;
@@ -67,5 +67,5 @@ int ft_printf(const char *format, ...)
 		format++;
 	}
 	va_end(arg_ptr);
-	return(total);
+	return (total);
 }

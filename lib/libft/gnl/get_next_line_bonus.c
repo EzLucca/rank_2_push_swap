@@ -6,13 +6,13 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 14:29:04 by edlucca           #+#    #+#             */
-/*   Updated: 2025/05/18 18:34:05 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/29 15:12:55 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-static char *read_and_append(int fd, char *buffer, char *tmp_buf, ssize_t bytes)
+static char	*read_and_append(int fd, char *buffer, char *tmp_buf, ssize_t bytes)
 {
 	char	*new_buffer;
 
@@ -30,7 +30,7 @@ static char *read_and_append(int fd, char *buffer, char *tmp_buf, ssize_t bytes)
 		new_buffer = ft_strjoin(buffer, tmp_buf);
 		if (!new_buffer)
 		{
-			free(buffer); 
+			free (buffer);
 			return (NULL);
 		}
 		free (buffer);

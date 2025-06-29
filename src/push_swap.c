@@ -6,22 +6,11 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:35:22 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/28 16:31:58 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/29 15:15:07 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-// static void print_stack(t_stack *stack, char *name)
-// {
-//     ft_printf("Stack %s: ", name);
-//     while (stack)
-//     {
-//         ft_printf("%d ", stack->nbr);
-//         stack = stack->next;
-//     }
-//     ft_printf("\n");
-// }
 
 /**
  * @brief Entry point of the push_swap program.
@@ -52,7 +41,5 @@ int	main(int ac, char **av)
 	}
 	if (!ascending_check(&a))
 		sort_stack(&a, &b);
-	// print_stack(a, "A");
-	// print_stack(b, "B");
 	free_exit(&a, &b);
 }
