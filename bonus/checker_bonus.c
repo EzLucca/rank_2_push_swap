@@ -6,7 +6,7 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 10:15:14 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/29 15:15:33 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/29 18:40:14 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,10 @@ static void	read_av(int ac, char **av, t_stack **a, t_stack **b)
 	else
 		create_stack(ac, av, a);
 	if (!(*a) || duplicates_check(*a))
+	{
+		ft_putstr_fd("Error\n", 2);
 		free_exit(a, b);
+	}
 }
 
 /**
@@ -96,7 +99,10 @@ static void	operations(t_stack **a, t_stack **b, char *str)
 	else if (!ft_strncmp(str, "rrr\n", 4))
 		reverse_rotate_r(a, b);
 	else
+	{
+		ft_putstr_fd("Error\n", 2);
 		free_all(a, b, str);
+	}
 }
 
 /**
