@@ -6,7 +6,7 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 12:01:03 by edlucca           #+#    #+#             */
-/*   Updated: 2025/05/19 13:50:10 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/30 17:37:02 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*get_next_line(int fd);
  * @param s: String to count the length.
  * @return Length of the string 's'.
  */
-size_t	ft_strlen(const char *s);
+size_t	ft_strlen_gnl(char *s);
 
 /** 
  * Copies bytes from one memory area to another; the areas must not overlap.
@@ -53,7 +53,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
  * @param c: Character to search inside the string.
  * @return: Pointer to the location on the string or NULL if not found.
  */
-char	*ft_strchr_gnl(const char *s, int c);
+char	*ft_strchr_gnl(char *s, int c);
 
 /**
  * Concatenates two strings with dinamic allocation.
@@ -63,13 +63,6 @@ char	*ft_strchr_gnl(const char *s, int c);
  */
 char	*ft_strjoin_gnl(char *buffer, char *tmp_buf);
 
-/**
- * Create a substring with dinamic allocation.
- * @param s: Source string.
- * @param start: Position to start copy.
- * @param len: Length of the substring.
- * @return: Pointer to the string or NULL if allocation fails.
- */
-char	*ft_substr_gnl(char *s, unsigned int start, size_t len);
+char	*ft_strndup_gnl(const char *s, size_t n);
 
 #endif

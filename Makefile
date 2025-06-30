@@ -49,14 +49,14 @@ LIBFT = $(DIR_LIBFT)/libft.a
 GREEN = \033[0;32m
 NC = \033[0m
 
-all: $(LIBFT) $(NAME)
+all:  $(NAME)
 
 bonus: $(LIBFT) $(NAME) $(NAME_BONUS)
 
 $(LIBFT):
 	@make --no-print-directory -C $(DIR_LIBFT)
 
-$(NAME): $(OBJECTS)
+$(NAME): $(LIBFT) $(OBJECTS)
 	@$(COMPILER) $(CFLAGS) $(OBJECTS) -o $@ $(LIBFT_FLAGS)
 	@echo "✅ Build $(GREEN)$(NAME)$(NC) successfully! 🎉"
 

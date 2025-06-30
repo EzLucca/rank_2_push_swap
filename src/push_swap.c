@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 16:35:22 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/29 15:15:07 by edlucca          ###   ########.fr       */
+/*   Created: 2025/06/30 13:57:34 by edlucca           #+#    #+#             */
+/*   Updated: 2025/06/30 13:57:35 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,8 @@ int	main(int ac, char **av)
 	b = NULL;
 	create_stack(ac, av, &a);
 	if (!a || duplicates_check(a))
-	{
-		ft_putstr_fd("Error\n", 2);
-		free_exit(&a, &b);
-	}
+		exit_failure(&a, &b);
 	if (!ascending_check(&a))
 		sort_stack(&a, &b);
-	free_exit(&a, &b);
+	exit_success(&a, &b);
 }

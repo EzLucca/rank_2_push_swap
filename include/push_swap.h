@@ -98,6 +98,7 @@ void	reverse_rotate_r(t_stack **a, t_stack **b);
 int		max_return(int a, int b);
 void	free_stack(t_stack **st);
 void	error_found(void);
-void	free_exit(t_stack **a, t_stack **b);
+void	exit_success(t_stack **a, t_stack **b);
+void	exit_failure(t_stack **a, t_stack **b);
 
 #endif // !PUSH_SWAP_H

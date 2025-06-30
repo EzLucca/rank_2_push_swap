@@ -24,6 +24,8 @@ bool	ascending_check(t_stack **a)
 {
 	t_stack	*tmp;
 
+	if (!a || !(*a))
+		return (0);
 	tmp = *a;
 	while (tmp->next)
 	{

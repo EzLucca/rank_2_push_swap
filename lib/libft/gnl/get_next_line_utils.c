@@ -6,13 +6,13 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 12:00:41 by edlucca           #+#    #+#             */
-/*   Updated: 2025/05/19 18:10:38 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/30 17:37:56 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../include/get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen_gnl(char *s)
 {
 	size_t	p;
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(const char *s)
 	return (p);
 }
 
-char	*ft_strchr_gnl(const char *s, int c)
+char	*ft_strchr_gnl(char *s, int c)
 {
 	int	i;
 
@@ -57,28 +57,24 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-char	*ft_substr_gnl(char *s, unsigned int start, size_t len)
+char	*ft_strndup_gnl(const char *s, size_t n)
 {
-	char	*string;
+	char	*dst;
+	size_t	i;
 
 	if (!s)
 		return (NULL);
-	if (start > ft_strlen(s))
-	{
-		string = malloc(1);
-		if (!string)
-			return (NULL);
-		string[0] = '\0';
-		return (string);
-	}
-	if (len > ft_strlen(s + start))
-		len = ft_strlen(s + start);
-	string = malloc(len + 1);
-	if (!string)
+	dst = malloc(sizeof(char) * (n + 1));
+	if (!dst)
 		return (NULL);
-	ft_memcpy(string, s + start, len);
-	string[len] = '\0';
-	return (string);
+	i = 0;
+	while (i < n)
+	{
+		dst[i] = s[i];
+		i++;
+	}
+	dst[n] = '\0';
+	return (dst);
 }
 
 char	*ft_strjoin_gnl(char *buffer, char *tmp_buf)
@@ -87,17 +83,25 @@ char	*ft_strjoin_gnl(char *buffer, char *tmp_buf)
 	int		s2_len;
 	char	*string;
 
-	s1_len = 0;
-	s2_len = 0;
-	while (buffer[s1_len])
-		s1_len++;
-	while (tmp_buf[s2_len])
-		s2_len++;
+	s1_len = ft_strlen_gnl(buffer);
+	s2_len = ft_strlen_gnl(tmp_buf);
+	if (!tmp_buf)
+		return (NULL);
+	if (!buffer)
+	{
+		buffer = malloc(1);
+		if (!buffer)
+			return (NULL);
+		buffer[0] = '\0';
+	}
+	s1_len = ft_strlen_gnl(buffer);
+	s2_len = ft_strlen_gnl(tmp_buf);
 	string = malloc((s1_len + s2_len + 1) * sizeof(char));
 	if (!string)
-		return (NULL);
+		return (free(buffer), NULL);
 	ft_memcpy(string, buffer, s1_len);
 	ft_memcpy(string + s1_len, tmp_buf, s2_len);
 	string[s1_len + s2_len] = '\0';
+	free(buffer);
 	return (string);
 }

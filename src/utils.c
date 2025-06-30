@@ -55,11 +55,29 @@ void	error_found(void)
  * @param a Pointer to stack A.
  * @param b Pointer to stack B.
  */
-void	free_exit(t_stack **a, t_stack **b)
+void	exit_success(t_stack **a, t_stack **b)
 {
 	free_stack(a);
 	free_stack(b);
 	exit(0);
+}
+
+/**
+ * @brief Frees both stacks and exits the program.
+ *
+ * Safely free the memory from stacks A and B.
+ * Outputs "Error" to standard error and terminates the program with exit 
+ * code 1.
+ * Typically used for clean exits and display errors.
+ *
+ * @param a Pointer to stack A.
+ * @param b Pointer to stack B.
+ */
+void	exit_failure(t_stack **a, t_stack **b)
+{
+	free_stack(a);
+	free_stack(b);
+	error_found();
 }
 
 /**

@@ -6,7 +6,7 @@
 /*   By: edlucca <edlucca@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 10:15:14 by edlucca           #+#    #+#             */
-/*   Updated: 2025/06/29 18:40:14 by edlucca          ###   ########.fr       */
+/*   Updated: 2025/06/30 17:39:42 by edlucca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,52 +19,10 @@
  * @param b Pointer to stack 'b'.
  * @param str String to be freed.
  */
-static void	free_all(t_stack **a, t_stack **b, char *str)
+static void	failure_free_all(t_stack **a, t_stack **b, char *str)
 {
 	free(str);
-	free_exit(a, b);
-}
-
-/**
- * @brief Reads command line arguments and creates stack 'a'.
- *
- * If a single argument contains multiple numbers separated by spaces,
- * it splits them before creating the stack.
- * 
- * @param ac Argument count.
- * @param av Argument vector (array of strings).
- * @param a Pointer to stack 'a'.
- * @param b Pointer to stack 'b'.
- */
-static void	read_av(int ac, char **av, t_stack **a, t_stack **b)
-{
-	char	**array;
-
-	if (ac == 2)
-	{
-		if (av[1][0] == '\0')
-		{
-			ft_putstr_fd("Error\n", 2);
-			free_exit(a, b);
-		}
-		array = ft_split(av[1], ' ');
-		if (!array)
-			free_exit(a, b);
-		create_stack(ac, array, a);
-		if (!a || duplicates_check(*a))
-		{
-			ft_free_array(array);
-			free_exit(a, b);
-		}
-		ft_free_array(array);
-	}
-	else
-		create_stack(ac, av, a);
-	if (!(*a) || duplicates_check(*a))
-	{
-		ft_putstr_fd("Error\n", 2);
-		free_exit(a, b);
-	}
+	exit_failure(a, b);
 }
 
 /**
@@ -99,10 +57,7 @@ static void	operations(t_stack **a, t_stack **b, char *str)
 	else if (!ft_strncmp(str, "rrr\n", 4))
 		reverse_rotate_r(a, b);
 	else
-	{
-		ft_putstr_fd("Error\n", 2);
-		free_all(a, b, str);
-	}
+		failure_free_all(a, b, str);
 }
 
 /**
@@ -124,7 +79,9 @@ int	main(int ac, char **av)
 		return (0);
 	a = NULL;
 	b = NULL;
-	read_av(ac, av, &a, &b);
+	create_stack(ac, av, &a);
+	if (duplicates_check(a))
+		exit_failure(&a, &b);
 	instructions = get_next_line(STDIN_FILENO);
 	while (instructions)
 	{
@@ -132,9 +89,9 @@ int	main(int ac, char **av)
 		free(instructions);
 		instructions = get_next_line(STDIN_FILENO);
 	}
-	if (ascending_check(&a) && (!b || b->next == NULL))
+	if (ascending_check(&a) && stack_size(&b) == 0)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
-	free_exit(&a, &b);
+	exit_success(&a, &b);
 }
