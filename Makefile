@@ -56,7 +56,7 @@ bonus: $(LIBFT) $(NAME) $(NAME_BONUS)
 $(LIBFT):
 	@make --no-print-directory -C $(DIR_LIBFT)
 
-$(NAME): $(LIBFT) $(OBJECTS)
+$(NAME): $(LIBFT) $(OBJECTS) 
 	@$(COMPILER) $(CFLAGS) $(OBJECTS) -o $@ $(LIBFT_FLAGS)
 	@echo "✅ Build $(GREEN)$(NAME)$(NC) successfully! 🎉"
 

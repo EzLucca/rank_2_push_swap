@@ -18,14 +18,14 @@
  * This function performs the reverse rotation on a single stack.
  * It moves the last node to the front, shifting all others down.
  *
- * @param src Pointer to the stack to reverse rotate.
+ * @param stack Pointer to the stack to reverse rotate.
  */
-void	reverse_rotate(t_stack **src)
+void	move_reverse_rotate(t_stack **stack)
 {
 	t_stack	*first;
 	t_stack	*last;
 
-	first = *src;
+	first = *stack;
 	last = NULL;
 	while (first->next)
 	{
@@ -33,8 +33,8 @@ void	reverse_rotate(t_stack **src)
 		first = first->next;
 	}
 	last->next = NULL;
-	first->next = *src;
-	*src = first;
+	first->next = *stack;
+	*stack = first;
 }
 
 /**
@@ -49,7 +49,7 @@ void	reverse_rotate_a(t_stack **stack)
 {
 	if (!(*stack) || !(*stack)->next)
 		return ;
-	reverse_rotate(stack);
+	move_reverse_rotate(stack);
 	ft_printf("rra\n");
 }
 
@@ -65,7 +65,7 @@ void	reverse_rotate_b(t_stack **stack)
 {
 	if (!(*stack) || !(*stack)->next)
 		return ;
-	reverse_rotate(stack);
+	move_reverse_rotate(stack);
 	ft_printf("rrb\n");
 }
 
@@ -83,7 +83,7 @@ void	reverse_rotate_r(t_stack **a, t_stack **b)
 {
 	if (!(*a) || !(*b) || !(*a)->next || !(*b)->next)
 		return ;
-	reverse_rotate(a);
-	reverse_rotate(b);
+	move_reverse_rotate(a);
+	move_reverse_rotate(b);
 	ft_printf("rrr\n");
 }

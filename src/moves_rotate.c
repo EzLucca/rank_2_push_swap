@@ -18,16 +18,16 @@
  * Performs a single rotation on the given stack by moving the first
  * element to the end of the list.
  *
- * @param src Pointer to the stack to rotate.
+ * @param stack Pointer to the stack to rotate.
  */
-void	move_rotate(t_stack **src)
+void	move_rotate(t_stack **stack)
 {
 	t_stack	*first;
 	t_stack	*last;
 
-	first = *src;
-	last = stack_last(src);
-	*src = first->next;
+	first = *stack;
+	last = stack_last(stack);
+	*stack = first->next;
 	first->next = NULL;
 	last->next = first;
 }

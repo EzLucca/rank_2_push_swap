@@ -55,10 +55,11 @@ Min validation (80%)
 ### The Bonus
 ### Randon number generator
 
+    The following code can be used to generate numbers for testing.
+
     ```
     ./push_swap $(head -c 400 /dev/urandom | od -An -td4 | head -n 100 | tr -s ' ' | sed 's/^ //' | tr '\n' ' ')
     ```
-
     - `/dev/urandom` is a special file in Unix-like systems that provides random bytes.
 
     - `-c 400` tells head to read 400 bytes from /dev/urandom.
@@ -89,11 +90,11 @@ Min validation (80%)
     The following code generate also 100 uniques numbers
 
     ```
-    ./push_swap $(shuf -i 1-1000000 -n 100)
+./push_swap $(shuf -i 1-1000000 -n 100)
     ```
 
-    command used to generate 100 random numbers in fish terminal
+    Command used to generate 100 random numbers in fish terminal
 
+    ```
     set arg (shuf -i 1-1000000 -n 100); ./push_swap $arg | ./checker_linux $arg
-
- 1) make push_swap should also compile by adding $(NAME): $(LIBFT) to compile - we fixed that. 2) Some leaks and segfault found (ascending function) in bonus part when passing error cases (valgrind ./checker "0 9 1 8 2" ) (duplicated (should display error - we fixed that). 3) There was1 byte reachable by get_next_line when we run error cases. I hope I don't miss more stuff. Great job and will pass next time!
+    ```
